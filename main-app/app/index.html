@@ -11,10 +11,10 @@
 <main>
     <h1> Noughts and Crosses ({{Player1}} vs {{Player2}}) </h1>
     <h2> Score: {{stringLine}} </h2>
-    <div id="board">
+    <div id="board" ng-show="showme">
         <table>
         <tr id="row1">
-            <td ng-click="chooseBlock(0)" class="square"><img ng-src="images/transparent.gif"> </td>
+            <td ng-click="chooseBlock(0)" class="square"><img ng-src="images/transparent.gif""> </td>
             <td ng-click="chooseBlock(1)" class="square v"><img ng-src="images/transparent.gif"> </td>
             <td ng-click="chooseBlock(2)" class="square"><img ng-src="images/transparent.gif"></td>
         </tr>
@@ -30,19 +30,20 @@
         </tr>
     </table>
     </div>
-    <select name="Choose Player 1" ng-model="Player1">
+    <select ng-hide="showme" name="Choose Player 1" ng-model="Player1">
         <option value="Human">Human</option>
         <option value="Computer">Computer</option>
     </select>
-    <select name="Pick your enemy wisely" ng-model="Player2">
+    <span ng-hide="showme"> vs </span>
+    <select ng-hide="showme" name="Pick your enemy wisely" ng-model="Player2">
         <option value="Human">Human</option>
         <option value="Computer">Computer</option>
     </select>
+    <input type="button" value="Play" ng-hide="showme" ng-click="showme=true">
     <br/>
-    <h2> player 1 picked {{Player1}}</h2>
-    <h2> player 2 picked {{Player2}}</h2>
+    <h2> Player 1 picked {{Player1}}</h2>
+    <h2> Player 2 picked {{Player2}}</h2>
 </main>
 <br/>
-
 </body>
 </html>
