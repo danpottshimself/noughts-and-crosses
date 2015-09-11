@@ -1,4 +1,4 @@
-var myApp = angular.module('Tombola.MyModule', []);
+myApp = angular.module('Tombola.MyModule', []);
 
 
 myApp.controller('MyController', function ($scope) {
