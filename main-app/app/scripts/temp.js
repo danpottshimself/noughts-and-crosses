@@ -14,12 +14,12 @@ angular.module('Tombola.MyModule')
             }
         if (currentPlayer === '1'){
             $scope.stringLine= setCharAt($scope.stringLine ,index,'1');
-          document.getElementsByTagName('img')[index].setAttribute("src", "images/Crosses.gif");
+          //document.getElementsByTagName('img')[index].setAttribute("src", "images/Crosses.gif");
             currentPlayer = '2';
         }
             else {
             $scope.stringLine = setCharAt($scope.stringLine, index, '2');
-            document.getElementsByTagName('img')[index].setAttribute("src", "images/noughts.png");
+          //  document.getElementsByTagName('img')[index].setAttribute("src", "images/noughts.png");
             currentPlayer = '1';
         }
         };

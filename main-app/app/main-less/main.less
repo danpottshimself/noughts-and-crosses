@@ -60,16 +60,18 @@ main table {
   margin-top: 100px;
 }
 
-img {
-  width: 180px;
-  max-width: 18px;
-  height: 180px;
-  max-height: 180px;
-  .Player1 {
-    background-position: 0;
-  }
-
-  .Player2 {
-    background-position: 190px;
-  }
+.Player1, .Player2 {
+  display: inline-block;
+  overflow: hidden;
+  background-image: url("images/sprite.png");
+}
+.Player1 {
+  height: 128px;
+  width: 128px;
+  background-position: 0 0;
+}
+.Player2 {
+  height: 128px;
+  width: 128px;
+  background-position: -129px 0;
 }
