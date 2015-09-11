@@ -1,6 +1,5 @@
 myApp = angular.module('Tombola.MyModule', []);
 
-
 myApp.controller('MyController', function ($scope) {
     var currentPlayer;
     currentPlayer = '1';
@@ -23,10 +22,10 @@ myApp.controller('MyController', function ($scope) {
             currentPlayer = '1';
         }
     };
+
     function setCharAt(theString,index,chr) {
         if(index > theString.length-1) return theString;
         return theString.substr(0,index) + chr + theString.substr(index+1);
     }
-
 });
 
