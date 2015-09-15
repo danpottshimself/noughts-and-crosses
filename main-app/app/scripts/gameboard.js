@@ -8,16 +8,12 @@ myApp.controller('MyController', function ($scope) {
     $scope.Player2 = 'player2';
 
     $scope.chooseBlock = function (index){
-        if($scope.gameBoard.charAt(index)=="111"){
-            alert("you win");
-        }
-        else if ($scope.gameBoard.charAt(index)!=="0"){
+        if ($scope.gameBoard.charAt(index)!=="0"){
             return;
         }
 
         if (currentPlayer === '1'){
             $scope.gameBoard= setCharAt($scope.gameBoard ,index,'1');
-          //  document.getElementsByTagName('img')[index].setAttribute("src", "images/Crosses.gif");
             currentPlayer = '2';
         }
         else {
@@ -31,7 +27,6 @@ myApp.controller('MyController', function ($scope) {
         return theString.substr(0,index) + chr + theString.substr(index+1);
     }
 });
-
 
 /*
 Top horizontal

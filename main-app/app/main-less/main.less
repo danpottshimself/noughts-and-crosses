@@ -4,7 +4,7 @@
 @text-color:#FFFFFF;
 
 body {
-  background-color: @background-color;
+  background: url("../images/background.jpg");
 }
 
 a {
@@ -59,34 +59,18 @@ main table {
 .choosingplayer{
   margin-top: 100px;
 }
-/*
-img {
-  width: 180px;
-  max-width: 18px;
-  height: 180px;
-  max-height: 180px;
-  .Player1 {
-    background-position: 0;
-  }
 
-  .Player2 {
-    background-position: 190px;
-  }
-}*/
-
-.crossesMin, .noughtsMin{
+.player1, .player2 {
   background-image: url(../images/sprite.png);
 }
-
-.crossesMin{
+.player1 {
   background-position: -101px 0;
   width: 100px;
   height: 100px;
   max-height: 100px;
   max-width: 100px;
 }
-
-.noughtsMin{
+.player2 {
   background-position: -1px 0;
   width: 111px;
   height: 111px;
