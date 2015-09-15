@@ -1,2 +1,2 @@
-angular.module('Server.MyModule',[]);
-angular.module('Tombola.MyModule', ['Server.MyModule']);
+//angular.module('Server.MyModule',[]);
+angular.module('Tombola.MyModule', []);

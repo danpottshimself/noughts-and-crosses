@@ -9,6 +9,9 @@
         },
         html:{
             src: [".build/main-app/app/index.html"]
+        },
+        images: {
+            src: [".build/main-app/app/images/*.*"]
         }
     };
 })();

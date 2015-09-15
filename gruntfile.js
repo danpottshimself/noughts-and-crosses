@@ -28,6 +28,6 @@
         grunt.registerTask('lessFiles', ['lesslint', 'clean:less','less']);
         grunt.registerTask('jsFiles', ['jshint','clean:javascript', 'concat']);
         grunt.registerTask('htmlFiles', ['clean:html', 'copy:html']);
-        grunt.registerTask('default', ['copy', 'lessFiles', 'jsFiles', 'watch']);
+        grunt.registerTask('default', ['clean:images', 'copy', 'lessFiles', 'jsFiles', 'watch']);
     };
 })();
