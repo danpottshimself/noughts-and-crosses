@@ -1,25 +1,21 @@
-angular.module('Tombola.MyModule', []);
-
 angular.module('Tombola.MyModule')
-.controller('MyController', function ($scope) {
+.controller('MyController', ['$scope','Server', function ($scope,server) {
         var currentPlayer;
         currentPlayer = '1';
-        $scope.stringLine = '000000000';
+        $scope.gameBoard = '000000000';
         $scope.Player1 = 'player1';
         $scope.Player2 = 'player2';
 
         $scope.chooseBlock = function (index){
-        if ($scope.stringLine.charAt(index)!=="0"){
+        if ($scope.gameBoard.charAt(index)!=="0"){
                 return;
             }
         if (currentPlayer === '1'){
-            $scope.stringLine= setCharAt($scope.stringLine ,index,'1');
-          //document.getElementsByTagName('img')[index].setAttribute("src", "images/Crosses.gif");
+            $scope.gameBoard= setCharAt($scope.gameBoard ,index,'1');
             currentPlayer = '2';
         }
             else {
-            $scope.stringLine = setCharAt($scope.stringLine, index, '2');
-          //  document.getElementsByTagName('img')[index].setAttribute("src", "images/noughts.png");
+            $scope.gameBoard = setCharAt($scope.gameBoard, index, '2');
             currentPlayer = '1';
         }
         };
@@ -28,7 +24,7 @@ angular.module('Tombola.MyModule')
             if(index > theString.length-1) return theString;
             return theString.substr(0,index) + chr + theString.substr(index+1);
         }
-    });
+    }]);
 
 
 
