@@ -1,11 +1,21 @@
 angular.module('Tombola.MyModule')
-.controller('MyController', ['$scope', '$http', function ($scope, $http) {
+.controller('MyController', ['$scope', 'Server', function ($scope, server) {
         var currentPlayer;
         currentPlayer = '1';
         $scope.gameBoard = '000000000';
-        $scope.Player1 = 'human';
-        $scope.Player2 = 'human';
-
+        $scope.Player1 = '';
+        $scope.Player2 = '';
+        $scope.startGame = function (){
+            server.newGame($scope.Player1, $scope.Player2);
+        };
+        $scope.makeTurn = function (index) {
+            if (currentPlayer == 1){
+                server.playerTurn(1,index);
+            }
+            else if (currentPlayer == 2){
+                server.playerTurn(2,index);
+            }
+        };
         $scope.chooseBlock = function (index){
         if ($scope.gameBoard.charAt(index)!=="0"){
                 return;
@@ -25,13 +35,7 @@ angular.module('Tombola.MyModule')
             return theString.substr(0,index) + chr + theString.substr(index+1);
         }
 
-        $http.post("http://eutaveg-01.tombola.emea:35000/api/v1.0/newgame",{"player1":$scope.Player1, "player2":$scope.Player2})
-            .then(function(response){
-                console.log("successful connection" + response.data.outcome + " " + response.data.gameboard);
-            },
-            function(response) {
-                console.log("bad response, please try again" + response);
-            });
+
 
        /* $http.post ("http://eutaveg-01.tombola.emea:35000/api/v1.0/makemove",{"player1": "human", "player2": "human"})
             .then(function(response) {
