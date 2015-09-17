@@ -1,5 +1,5 @@
 angular.module('Tombola.MyModule')
-.controller('MyController', ['$scope','$q', 'Server', function ($scope,$q, server) {
+.controller('MyController', ['$scope','$q', 'Server', 'ServerTurn', 'NewGame', function ($scope,$q, server, serverTurn, newGame) {
         var currentPlayer;
         currentPlayer = '1';
         $scope.gameBoard = '000000000';
@@ -30,29 +30,28 @@ angular.module('Tombola.MyModule')
         }
 
 
-
-        $scope.startGame = function (){
-            server.newGame($scope.Player1, $scope.Player2)
-            .then(function (data) {
+        $scope.startGame = function () {
+            newGame.newGame($scope.Player1, $scope.Player2)
+                .then(function (data) {
                     $scope.gameBoard = data.gameboard;
-                   $scope.currentGameState = data.outcome;
-            })
-            .catch(function (response) {
-
-            });
+                    $scope.currentGameState = data.outcome;
+                })
+                .catch(function (response) {
+                    console.log(response);
+                });
         };
 
        var makeTurn = function (index) {
-                server.playerTurn(currentPlayer, index)
-            .then(function (response) {
-                    $scope.gameBoard = response.gameboard;
-                    $scope.currentGameState = response.outcome;
+           serverTurn.playerTurn(currentPlayer, index)
+               .then(function (response) {
+                   $scope.gameBoard = response.gameboard;
+                   $scope.currentGameState = response.outcome;
 
-                })
-                    .catch(function (response) {
-
-                    });
-            };
+               })
+               .catch(function (response) {
+                console.log(response);
+               });
+       };
 
         var humanLogic = function (index) {
             if (currentPlayer === '1') {
