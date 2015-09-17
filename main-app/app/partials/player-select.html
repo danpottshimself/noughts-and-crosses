@@ -10,7 +10,7 @@
     <option value="pre-trained">Pre-trained</option>
 </select>
 <br/>
-<input type="button" value="Play" ng-hide="showme" ng-click="showme=true;startGame();">
+<input type="button" value="Play" ng-hide="currentGameState === 'Continue'" ng-show="currentGameState === 'Draw' || currentGameState=== 'Win'" ng-click="showme=true;startGame();">
 <br/>
 <h2> Player 1 picked {{Player1}}</h2>
 <h2> Player 2 picked {{Player2}}</h2>

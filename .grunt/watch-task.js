@@ -11,7 +11,7 @@
 
         },
             htmlWatcher: {
-                files: ['main-app/app/*.html'],
+                files: ['main-app/app/*.html', 'main-app/app/partials/*.html'],
                 tasks: ['htmlFiles']
             }
 

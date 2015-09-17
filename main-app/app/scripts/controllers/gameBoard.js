@@ -6,7 +6,6 @@ angular.module('Tombola.MyModule')
         $scope.Player1 = 'human';
         $scope.Player2 = 'human';
         $scope.currentGameState = '';
-
         $scope.chooseBlock = function (index){
             if ($scope.gameBoard.charAt(index)!=="0" || $scope.currentGameState === "Win"){
                 return;
@@ -31,6 +30,7 @@ angular.module('Tombola.MyModule')
 
 
         $scope.startGame = function () {
+            currentPlayer = "1";
             newGame.newGame($scope.Player1, $scope.Player2)
                 .then(function (data) {
                     $scope.gameBoard = data.gameboard;
