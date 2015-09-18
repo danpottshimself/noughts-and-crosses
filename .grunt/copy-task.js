@@ -24,6 +24,12 @@
                     src: ['bower_components/**/*.*'],
                     dest: '.build/main-app/app/thirdparty/',
                     expand: true
-                }
+                },
+                 partials:{
+                     cwd: '',
+                     src: ['main-app/app/partials/*.*'],
+                     dest: '.build/main-app/app/partials/',
+                     expand: true
+                 }
             };
 })();
