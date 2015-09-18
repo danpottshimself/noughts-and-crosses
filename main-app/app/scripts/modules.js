@@ -1,17 +1,20 @@
 angular.module('Server.MyModule',[]);
-angular.module('Tombola.MyModule', ['Server.MyModule'])
-.config(function($stateProvider, $urlRouterProvider){
+angular.module('Tombola.MyModule', ['Server.MyModule', 'ui.router'])
+    .config(function($stateProvider, $urlRouterProvider) {
 
-    // For any unmatched url, send to /route1
-    $urlRouterProvider.otherwise("/route1");
+        $urlRouterProvider.otherwise("/route3");
 
-    $stateProvider
-        .state('route1', {
-            url: "/route1",
-            templateUrl: "partials/gameboard.html"
-        })
-        .state('route2', {
-            url: "/route2",
-            templateUrl: "partials/game-info.html"
-        });
-});
+        $stateProvider
+            .state('route1', {
+                url: "/route1",
+                templateUrl: "partials/game-board.html"
+            })
+            .state('route3', {
+                url: "/route3",
+                templateUrl: "partials/player-select.html"
+            });
+    });
+
+
+
+

@@ -10,9 +10,10 @@
 </head>
 <body ng-controller="MyController">
 <main>
-    <game-info></game-info>
-    <the-game-board> </the-game-board>
-    <player-selection></player-selection>
+   <h1> Noughts and Crosses ({{Player1}} vs {{Player2}}) </h1>
+    <div ui-view></div>
+    <li><a ui-sref="route3">Home</a></li>
+    <li><a ui-sref="route1"  ng-click="startGame();">Play</a></li>
 </main>
 <br/>
 </body>

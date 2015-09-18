@@ -1,16 +1,6 @@
-<select ng-hide="showme" name="Choose Player 1" ng-model="Player1">
-    <option value="human">Human</option>
-    <option value="random">Random</option>
-    <option value="pre-trained">Pre-trained</option>
-</select>
-<span ng-hide="showme"> vs </span>
-<select ng-hide="showme" name="Pick your enemy wisely" ng-model="Player2">
-    <option value="human">Human</option>
-    <option value="random">Random</option>
-    <option value="pre-trained">Pre-trained</option>
-</select>
-<br/>
-<input type="button" value="Play" ng-hide="currentGameState === 'Continue'" ng-show="currentGameState === 'Draw' || currentGameState=== 'Win'" ng-click="showme=true;startGame();">
+<h2> Choose type of player</h2>
+<div ng-click="heroSelection(1)" class="{{Player1}}"></div> <span> VS </span>
+<div ng-click="heroSelection(2)" class="{{Player2}}"></div>
 <br/>
 <h2> Player 1 picked {{Player1}}</h2>
 <h2> Player 2 picked {{Player2}}</h2>

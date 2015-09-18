@@ -1,4 +1,8 @@
-<div id="board" ng-show="showme">
+<h2> Score: {{gameBoard}} </h2>
+<h1> {{currentGameState}}</h1>
+<div class="{{Player1}}"></div> VS
+<span class="{{Player2}}"></span>
+<div id="board">
     <table>
         <tr id="row1">
             <td ng-click="chooseBlock(0); makeTurn();" class="square"><img ng-src="images/transparent.png" class="player{{gameBoard[0]}}"> </td>
