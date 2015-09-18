@@ -1,10 +1,8 @@
 angular.module('Tombola.MyModule')
-.controller('MyController', ['$scope','$q', 'Server', 'ServerTurn', 'NewGame', function ($scope,$q, server, serverTurn, newGame) {
+.controller('MyController', ['$scope','$q', 'Server', 'ServerTurn', 'NewGame', 'PlayerService', function ($scope,$q, server, serverTurn, newGame, playerService) {
         var currentPlayer;
         currentPlayer = '1';
         $scope.gameBoard = '000000000';
-        $scope.Player1 = 'human';
-        $scope.Player2 = 'human';
         $scope.currentGameState = '';
         $scope.chooseBlock = function (index){
             if ($scope.gameBoard.charAt(index)!=="0" || $scope.currentGameState === "Win"){
@@ -28,9 +26,10 @@ angular.module('Tombola.MyModule')
             return theString.substr(0,index) + chr + theString.substr(index+1);
         }
 
-
         $scope.startGame = function () {
             currentPlayer = "1";
+            $scope.Player1 = playerService.player1;
+            $scope.Player2 = playerService.player2;
             newGame.newGame($scope.Player1, $scope.Player2)
                 .then(function (data) {
                     $scope.gameBoard = data.gameboard;
@@ -53,7 +52,7 @@ angular.module('Tombola.MyModule')
                });
        };
 
-        var humanLogic = function (index) {
+       var humanLogic = function (index) {
             if (currentPlayer === '1') {
                 $scope.gameBoard = setCharAt($scope.gameBoard, index, currentPlayer);
                 makeTurn(index);
@@ -65,26 +64,6 @@ angular.module('Tombola.MyModule')
                 currentPlayer = '1';
             }
         };
-
-        $scope.heroSelection = function (playerChoice) {
-            if (playerChoice === 1){
-                 $scope.Player1 = selectCharacter($scope.Player1);
-            }
-            else {
-                $scope.Player2 =  selectCharacter($scope.Player2);
-            }
-        };
-           var selectCharacter = function (playerChoice) {
-                if (playerChoice === "human") {
-                    return "pre-trained";
-                }
-                else if (playerChoice === "pre-trained") {
-                    return "random";
-                }
-                else {
-                    return "human";
-                }
-            };
     }]);
 
 
