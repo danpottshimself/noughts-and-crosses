@@ -1,25 +1,26 @@
-<h2> Score: {{gameBoard}} </h2>
+ <h2> Score: {{gameBoard}} </h2>
 <h1> {{currentGameState}}</h1>
 <div class="{{Player1}}"></div> VS
 <span class="{{Player2}}"></span>
 <div id="board">
     <table>
         <tr id="row1">
-            <td ng-click="chooseBlock(0); makeTurn();" class="square"><img ng-src="images/transparent.png" class="player{{gameBoard[0]}}"> </td>
-            <td ng-click="chooseBlock(1); makeTurn();" class="square v"><img ng-src="images/transparent.png" class="player{{gameBoard[1]}}"> </td>
-            <td ng-click="chooseBlock(2); makeTurn();" class="square"><img ng-src="images/transparent.png" class="player{{gameBoard[2]}}"></td>
+            <td ng-click="chooseBlock(0);" class="square"><img ng-src="images/transparent.png" class="player{{gameBoard[0]}}"> </td>
+            <td ng-click="chooseBlock(1);" class="square v"><img ng-src="images/transparent.png" class="player{{gameBoard[1]}}"> </td>
+            <td ng-click="chooseBlock(2);" class="square"><img ng-src="images/transparent.png" class="player{{gameBoard[2]}}"></td>
         </tr>
         <tr id="row2">
-            <td ng-click="chooseBlock(3); makeTurn();"class="square h"><img ng-src="images/transparent.png" class="player{{gameBoard[3]}}" > </td>
-            <td ng-click="chooseBlock(4); makeTurn();"class="square v h"><img ng-src="images/transparent.png" class="player{{gameBoard[4]}}"> </td>
-            <td ng-click="chooseBlock(5); makeTurn();"class="square h"><img ng-src="images/transparent.png" class="player{{gameBoard[5]}}"> </td>
+            <td ng-click="chooseBlock(3);"class="square h"><img ng-src="images/transparent.png" class="player{{gameBoard[3]}}" > </td>
+            <td ng-click="chooseBlock(4);"class="square v h"><img ng-src="images/transparent.png" class="player{{gameBoard[4]}}"> </td>
+            <td ng-click="chooseBlock(5);"class="square h"><img ng-src="images/transparent.png" class="player{{gameBoard[5]}}"> </td>
         </tr>
         <tr id="row3">
-            <td ng-click="chooseBlock(6); makeTurn();" class="square"><img src="images/transparent.png" class="player{{gameBoard[6]}}"> </td>
-            <td ng-click="chooseBlock(7); makeTurn();" class="square v"><img src="images/transparent.png"class="player{{gameBoard[7]}}"> </td>
-            <td ng-click="chooseBlock(8); makeTurn();" class="square"><img src="images/transparent.png" class="player{{gameBoard[8]}}"> </td>
+            <td ng-click="chooseBlock(6);" class="square"><img src="images/transparent.png" class="player{{gameBoard[6]}}"> </td>
+            <td ng-click="chooseBlock(7);" class="square v"><img src="images/transparent.png"class="player{{gameBoard[7]}}"> </td>
+            <td ng-click="chooseBlock(8);" class="square"><img src="images/transparent.png" class="player{{gameBoard[8]}}"> </td>
         </tr>
     </table>
+    <br/>
     <li><a ui-sref="route3">Home</a></li>
 </div>
-<br/>
+

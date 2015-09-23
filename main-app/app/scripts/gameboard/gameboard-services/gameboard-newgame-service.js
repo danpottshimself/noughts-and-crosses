@@ -1,15 +1,17 @@
-/*angular.module('Server.MyModule')
-    .service('StartGame',  function () {
-        var me = this;
-         me.makeTurn = function (index) {
-            serverTurn.playerTurn(currentPlayer, index)
-                .then(function (response) {
-                    me.gameBoard = response.gameboard;
-                    me.currentGameState = response.outcome;
-
+angular.module('Server.MyModule')
+    .service('FreshGame', ['PlayerService','NewGame',  function (playerService, newGame) {
+        var me= this;
+        me.startGame = function () {
+            me.currentPlayer = "1";
+            me.Player1 = playerService.player1;
+            me.Player2 = playerService.player2;
+            newGame.newGame(me.Player1, me.Player2)
+                .then(function (data) {
+                    me.gameBoard = data.gameboard;
+                    me.currentGameState = data.outcome;
                 })
                 .catch(function (response) {
                     console.log(response);
                 });
         };
-    });*/
+    }]);

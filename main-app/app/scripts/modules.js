@@ -9,6 +9,10 @@ angular.module('Tombola.MyModule', ['Server.MyModule', 'ui.router'])
                 url: "/route1",
                 templateUrl: "partials/game-board.html"
             })
+            .state ('route2', {
+                 url: "/route2",
+                 templateUrl: "partials/rules.html"
+            })
             .state('route3', {
                 url: "/route3",
                 templateUrl: "partials/player-select.html"

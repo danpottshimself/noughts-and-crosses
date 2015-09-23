@@ -24,10 +24,17 @@
         grunt.loadNpmTasks('grunt-contrib-concat');
         grunt.loadNpmTasks('grunt-contrib-watch');
         grunt.loadNpmTasks('grunt-contrib-clean');
+        grunt.loadNpmTasks('grunt-express-server');
 
         grunt.registerTask('lessFiles', ['lesslint', 'clean:less','less']);
         grunt.registerTask('jsFiles', ['jshint','clean:javascript', 'concat']);
         grunt.registerTask('htmlFiles', ['clean:html', 'copy:html']);
-        grunt.registerTask('default', ['clean:images', 'copy', 'lessFiles', 'jsFiles', 'watch']);
+        grunt.registerTask('default', ['clean:images', 'copy', 'lessFiles', 'jsFiles','server', 'watch']);
+        var port = 35001;
+        grunt.registerTask('server', 'Start a custom web server', function() {
+            var server = require('./.grunt/express-task.js');
+            server.listen(port);
+            grunt.log.writeln('Listening on port ' + port);
+        });
     };
 })();
