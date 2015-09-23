@@ -6,10 +6,9 @@ angular.module('Server.MyModule')
             me.Player2 = playerService.player2;
             newGame.newGame(me.Player1, me.Player2)
                 .then(function (data) {
-                    console.log('newGameAttemot');
+                    coreData.currentPlayer = "1";
                     coreData.gameBoard = data.gameboard;
                     coreData.currentGameState = data.outcome;
-                    console.log(coreData.gameBoard);
                 })
                 .catch(function (response) {
                     console.log(response);
