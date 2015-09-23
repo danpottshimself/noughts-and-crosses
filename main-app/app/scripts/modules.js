@@ -1,8 +1,9 @@
-angular.module('Server.MyModule',[]);
-angular.module('Tombola.MyModule', ['Server.MyModule', 'ui.router'])
+angular.module('Core.MyModule', []);
+angular.module('Server.MyModule',['Core.MyModule']);
+angular.module('Tombola.MyModule', ['Server.MyModule', 'ui.router', 'Core.MyModule'])
     .config(function($stateProvider, $urlRouterProvider) {
 
-        $urlRouterProvider.otherwise("/route3");
+        $urlRouterProvider.otherwise("/PlayerSelect");
 
         $stateProvider
             .state('route1', {
@@ -14,7 +15,7 @@ angular.module('Tombola.MyModule', ['Server.MyModule', 'ui.router'])
                  templateUrl: "partials/rules.html"
             })
             .state('route3', {
-                url: "/route3",
+                url: "/PlayerSelect",
                 templateUrl: "partials/player-select.html"
             });
     });

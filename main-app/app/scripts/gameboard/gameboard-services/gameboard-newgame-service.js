@@ -1,14 +1,15 @@
 angular.module('Server.MyModule')
-    .service('FreshGame', ['PlayerService','NewGame',  function (playerService, newGame) {
+    .service('FreshGame', ['PlayerService','NewGame','CoreData',  function (playerService, newGame, coreData) {
         var me= this;
         me.startGame = function () {
-            me.currentPlayer = "1";
             me.Player1 = playerService.player1;
             me.Player2 = playerService.player2;
             newGame.newGame(me.Player1, me.Player2)
                 .then(function (data) {
-                    me.gameBoard = data.gameboard;
-                    me.currentGameState = data.outcome;
+                    console.log('newGameAttemot');
+                    coreData.gameBoard = data.gameboard;
+                    coreData.currentGameState = data.outcome;
+                    console.log(coreData.gameBoard);
                 })
                 .catch(function (response) {
                     console.log(response);
