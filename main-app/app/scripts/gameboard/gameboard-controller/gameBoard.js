@@ -13,7 +13,7 @@ angular.module('Tombola.MyModule')
             if (freshGame.Player1 == 'human' && freshGame.Player2 =='human') {
                 bothHumans.humanLogic(index);
             }
-           if (freshGame.Player2 == 'human' && freshGame.Player1 !=='human') {
+           if (freshGame.Player2 == 'human'  && freshGame.Player1 !=='human') {
                coreData.currentPlayer = '2';
                playerTurn.makeTurn(index);
            }

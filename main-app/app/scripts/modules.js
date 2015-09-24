@@ -7,11 +7,11 @@ angular.module('Tombola.MyModule', ['Server.MyModule', 'ui.router', 'Core.MyModu
 
         $stateProvider
             .state('route1', {
-                url: "/route1",
+                url: "/PlayGame",
                 templateUrl: "partials/game-board.html"
             })
             .state ('route2', {
-                 url: "/route2",
+                 url: "/Rules",
                  templateUrl: "partials/rules.html"
             })
             .state('route3', {
