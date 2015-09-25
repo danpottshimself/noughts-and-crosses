@@ -1,7 +1,8 @@
- <h2> Score: {{boardmodel.gameBoard}} </h2>
+<h1 class="animated zoomInDown"> Noughts and Crosses ({{model.Player1}} vs {{model.Player2}}) </h1>
+<h2> Score: {{boardmodel.gameBoard}} </h2>
 <h1> {{boardmodel.currentGameState}}</h1>
-<div class="{{Player1}}"></div> VS
-<span class="{{Player2}}"></span>
+<div class="{{model.Player1}}"></div> VS
+<span class="{{model.Player2}}"></span>
 <div id="board">
     <table>
         <tr id="row1">

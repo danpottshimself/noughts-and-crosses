@@ -17,7 +17,15 @@ angular.module('Tombola.MyModule', ['Server.MyModule', 'ui.router', 'Core.MyModu
             .state('route3', {
                 url: "/PlayerSelect",
                 templateUrl: "partials/player-select.html"
-            });
+            })
+            .state('route4', {
+                url: "/winner",
+                templateUrl: "partials/win-conditions.html"
+            })
+            .state ('route5', {
+                url: "/draw",
+                templateUrl: "partials/draw-conditions.html"
+             });
     });
 
 

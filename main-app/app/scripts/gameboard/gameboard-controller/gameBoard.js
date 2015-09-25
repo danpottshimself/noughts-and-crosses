@@ -1,5 +1,5 @@
 angular.module('Tombola.MyModule')
-.controller('MyController', ['$scope','$q', 'Server', 'ServerTurn','FreshGame', 'CoreData', 'PlayerTurn','BothHumans', function ($scope,$q, server, serverTurn, freshGame, coreData, playerTurn, bothHumans) {
+.controller('MyController', ['$scope','$q', 'Server', 'ServerTurn','FreshGame', 'CoreData', 'PlayerTurn','BothHumans', '$state', function ($scope,$q, server, serverTurn, freshGame, coreData, playerTurn, bothHumans, $state) {
         $scope.model=freshGame;
         $scope.boardmodel=coreData;
         $scope.chooseBlock = function (index){
