@@ -1,5 +1,5 @@
 angular.module('Tombola.MyModule')
-.controller('MyController', ['$scope','$q', 'Server', 'ServerTurn','FreshGame', 'CoreData', 'PlayerTurn','BothHumans', '$state', function ($scope,$q, server, serverTurn, freshGame, coreData, playerTurn, bothHumans, $state) {
+.controller('MyController', ['$scope','$q', 'Server', 'ServerTurn','FreshGame', 'CoreData','BothHumans', function ($scope,$q, server, serverTurn, freshGame, coreData, bothHumans) {
         $scope.model=freshGame;
         $scope.boardmodel=coreData;
         $scope.chooseBlock = function (index){
@@ -8,7 +8,7 @@ angular.module('Tombola.MyModule')
             }
             if (freshGame.Player1 == 'human' && freshGame.Player2 !=='human'){
                 coreData.currentPlayer = '1';
-                playerTurn.makeTurn(index);
+                freshGame.makeTurn(index);
             }
             if (freshGame.Player1 == 'human' && freshGame.Player2 =='human') {
                 bothHumans.humanLogic(index);
@@ -19,6 +19,3 @@ angular.module('Tombola.MyModule')
            }
         };
     }]);
-
-
-

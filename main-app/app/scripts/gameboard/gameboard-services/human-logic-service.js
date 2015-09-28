@@ -1,13 +1,13 @@
 angular.module('Server.MyModule')
-    .service('BothHumans', ['CoreData','PlayerTurn',  function (coreData, playerTurn) {
+    .service('BothHumans', ['CoreData','FreshGame',  function (coreData, freshGame) {
     var me = this;
          me.humanLogic = function (index) {
             if (coreData.currentPlayer === '1') {
-                playerTurn.makeTurn(index);
+                freshGame.makeTurn(index);
                 coreData.currentPlayer = '2';
             }
             else {
-                playerTurn.makeTurn(index);
+                freshGame.makeTurn(index);
                 coreData.currentPlayer = '1';
             }
         };
