@@ -20,11 +20,11 @@ angular.module('Tombola.MyModule', ['Server.MyModule', 'ui.router', 'Core.MyModu
             })
             .state('route4', {
                 url: "/winner",
-                templateUrl: "partials/win-conditions.html"
+                templateUrl: "partials/game-won.html"
             })
             .state ('route5', {
                 url: "/draw",
-                templateUrl: "partials/draw-conditions.html"
+                templateUrl: "partials/game-drawn.html"
              });
     });
 

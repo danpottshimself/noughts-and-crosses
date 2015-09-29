@@ -1,39 +1,31 @@
 angular.module('Server.MyModule')
-    .service('FreshGame', ['PlayerService','NewGame','CoreData','ServerTurn','$state',  function (playerService, newGame, coreData, serverTurn, $state) {
-        var outcome = 'Continue',
-            me = this,
-            gameEnded = function () {
-                if (outcome === "Win") {
-                    $state.go('route4');
-                }
-                else if (outcome === "Draw") {
-                    $state.go('route5');
-                }
-            },
-            updateInformaton = function (response) {
+    .service('GameFunctions', ['$state','PlayerService','Proxy','CoreData','EndOfGame',  function ($state, playerService, proxy, coreData, endOfGame) {
+           var me = this,
+                updateInformaton = function (response) {
                 coreData.gameBoard = response.gameboard;
                 coreData.currentGameState = response.outcome;
-                outcome = response.outcome;
+                endOfGame.outcome = response.outcome;
                 coreData.winner = response.winner;
+                    console.log(playerService.player1, playerService.player2);
             };
+        endOfGame.gameEnded();
 
         me.startGame = function () {
-            me.Player1 = playerService.player1;
-            me.Player2 = playerService.player2;
-            newGame.newGame(me.Player1, me.Player2)
+            coreData.currentPlayer = "1";
+            proxy.newGame(playerService.player1, playerService.player2)
                 .then(function (response) {
                     updateInformaton(response);
-                    gameEnded();
+                    endOfGame.gameEnded();
                 })
                 .catch(function (response) {
                     console.log(response);
                 });
         };
         me.makeTurn = function (index) {
-            serverTurn.playerTurn(coreData.currentPlayer, index)
+            proxy.playerTurn(coreData.currentPlayer, index)
                 .then(function (response) {
                     updateInformaton(response);
-                    gameEnded();
+                    endOfGame.gameEnded();
                 })
                 .catch(function (response) {
                 });

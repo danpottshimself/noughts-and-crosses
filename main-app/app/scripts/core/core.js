@@ -3,6 +3,6 @@ angular.module('Server.MyModule')
         var me = this;
         me.currentPlayer = '1';
         me.winner = "";
-        me.gameBoard = '000000000';
+        me.gameBoard = '';
         me.currentGameState = "";
     }]);
