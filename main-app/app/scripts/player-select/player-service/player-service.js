@@ -15,13 +15,10 @@ angular.module('Server.MyModule')
                 return human;
             }
         };
-
-        me.heroSelection = function (playerChoice) {
-            if (playerChoice === 1) {
-                me.player1 = selectCharacter(me.player1);
-            }
-            else {
-                me.player2 = selectCharacter(me.player2);
-            }
+        me.togglePlayer1 = function (){
+            me.player1 = selectCharacter(me.player1);
+        };
+        me.togglePlayer2 = function (){
+            me.player2 = selectCharacter(me.player2);
         };
     }]);

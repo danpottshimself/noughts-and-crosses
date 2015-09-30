@@ -1,5 +1,5 @@
 angular.module('Server.MyModule')
-    .service('BothHumans', ['CoreData','GameFunctions',  function (coreData, gameFunctions) {
+    .service('CharacterLogic', ['CoreData','GameFunctions',   function (coreData, gameFunctions) {
     var me = this;
          me.humanLogic = function (index) {
             if (coreData.currentPlayer === '1') {

@@ -1,19 +1,23 @@
 angular.module('Server.MyModule')
-    .service('GameFunctions', ['$state','PlayerService','Proxy','CoreData','EndOfGame',  function ($state, playerService, proxy, coreData, endOfGame) {
+    .service('GameFunctions', ['$state','PlayerService','Proxy','CoreData','EndOfGame','Characters',  function ($state, playerService, proxy, coreData, endOfGame,characters) {
            var me = this,
                 updateInformaton = function (response) {
                 coreData.gameBoard = response.gameboard;
                 coreData.currentGameState = response.outcome;
                 endOfGame.outcome = response.outcome;
                 coreData.winner = response.winner;
-                    console.log(playerService.player1, playerService.player2);
             };
         endOfGame.gameEnded();
 
         me.startGame = function () {
-            coreData.currentPlayer = "1";
             proxy.newGame(playerService.player1, playerService.player2)
                 .then(function (response) {
+                    if (playerService.player1 !== characters[0]) {
+                        coreData.currentPlayer = "2";
+                    }
+                    else {
+                        coreData.currentPlayer = "1";
+                    }
                     updateInformaton(response);
                     endOfGame.gameEnded();
                 })
