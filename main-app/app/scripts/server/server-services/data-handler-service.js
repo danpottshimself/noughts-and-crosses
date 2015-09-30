@@ -1,4 +1,4 @@
-angular.module('Server.MyModule')
+angular.module('Services.MyModule')
     .service('DataHandle',['$http', '$q', function ($http, $q) {
         var me = this;
          me.dataHandler = function (endUrl, data) {

@@ -1,4 +1,4 @@
-angular.module('Tombola.MyModule')
+angular.module('Directives.MyModule')
 .directive('gameBoard', function () {
     return {
         restrict: 'E',

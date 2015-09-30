@@ -6,8 +6,8 @@
 <br/>
 <h2> Player 1 picked {{model.player1}}</h2>
 <h2> Player 2 picked {{model.player2}}</h2>
-    <li><a ui-sref="route2">Rules</a></li>
+    <li><a ui-sref="rulePage">Rules</a></li>
 </div>
-    <div ng-controller="MyController">
-<li><a ui-sref="route1"  ng-click="model.startGame();">Play</a></li>
+    <div ng-controller="GameBoardController">
+<li><a ui-sref="gameBoard"  ng-click="model.startGame();">Play</a></li>
     </div>

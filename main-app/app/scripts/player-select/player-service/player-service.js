@@ -1,4 +1,4 @@
-angular.module('Server.MyModule')
+angular.module('Services.MyModule')
     .service('PlayerService', ['Characters',  function (characters) {
         var me= this,
             human = characters[0];

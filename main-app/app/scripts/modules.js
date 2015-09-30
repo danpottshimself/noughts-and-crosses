@@ -1,28 +1,29 @@
 angular.module('Core.MyModule', []);
-angular.module('Server.MyModule',['Core.MyModule']);
-angular.module('Tombola.MyModule', ['Server.MyModule', 'ui.router', 'Core.MyModule'])
+angular.module('Directives.MyModule',[]);
+angular.module('Services.MyModule',['Core.MyModule']);
+angular.module('Controllers.MyModule', ['Services.MyModule', 'ui.router', 'Core.MyModule'])
     .config(function($stateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise("/PlayerSelect");
 
         $stateProvider
-            .state('route1', {
+            .state('gameBoard', {
                 url: "/PlayGame",
                 templateUrl: "partials/game-board.html"
             })
-            .state ('route2', {
+            .state ('rulePage', {
                  url: "/Rules",
                  templateUrl: "partials/rules.html"
             })
-            .state('route3', {
+            .state('playerSelect', {
                 url: "/PlayerSelect",
                 templateUrl: "partials/player-select.html"
             })
-            .state('route4', {
+            .state('gameWon', {
                 url: "/winner",
                 templateUrl: "partials/game-won.html"
             })
-            .state ('route5', {
+            .state ('gameDrawn', {
                 url: "/draw",
                 templateUrl: "partials/game-drawn.html"
              });

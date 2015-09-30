@@ -1,4 +1,4 @@
-angular.module('Server.MyModule')
+angular.module('Services.MyModule')
     .service('GameFunctions', ['$state','PlayerService','Proxy','CoreData','EndOfGame','Characters',  function ($state, playerService, proxy, coreData, endOfGame,characters) {
            var me = this,
                 updateInformaton = function (response) {

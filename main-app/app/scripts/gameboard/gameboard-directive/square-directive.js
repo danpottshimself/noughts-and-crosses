@@ -1,4 +1,4 @@
-angular.module('Tombola.MyModule')
+angular.module('Directives.MyModule')
     .directive('squares', function () {
         return {
             restrict: 'E',

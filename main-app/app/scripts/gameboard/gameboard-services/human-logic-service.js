@@ -1,4 +1,4 @@
-angular.module('Server.MyModule')
+angular.module('Services.MyModule')
     .service('CharacterLogic', ['CoreData','GameFunctions',   function (coreData, gameFunctions) {
     var me = this;
          me.humanLogic = function (index) {

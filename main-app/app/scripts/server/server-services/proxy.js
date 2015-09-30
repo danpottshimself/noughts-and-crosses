@@ -1,4 +1,4 @@
-angular.module('Server.MyModule')
+angular.module('Services.MyModule')
 .service('Proxy',['$http', '$q','DataHandle', function ($http, $q, dataHandle) {
         var me = this;
         me.newGame = function (player1Choice, player2Choice) {

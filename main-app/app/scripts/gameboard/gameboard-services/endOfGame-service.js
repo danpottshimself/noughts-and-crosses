@@ -1,13 +1,13 @@
-angular.module('Server.MyModule')
+angular.module('Services.MyModule')
     .service('EndOfGame', ['$state',  function ($state) {
         var me = this;
         me.outcome = 'Continue';
         me.gameEnded = function () {
             if (me.outcome === "Win") {
-                $state.go('route4');
+                $state.go('gameWon');
             }
             else if (me.outcome === "Draw") {
-                $state.go('route5');
+                $state.go('gameDrawn');
             }
         };
 }]);

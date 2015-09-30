@@ -1,4 +1,4 @@
-angular.module('Server.MyModule')
+angular.module('Services.MyModule')
     .service('CoreData', [ function () {
         var me = this;
         me.currentPlayer = '1';
