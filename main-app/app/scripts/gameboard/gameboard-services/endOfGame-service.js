@@ -1,13 +1,13 @@
 angular.module('Services.MyModule')
-    .service('EndOfGame', ['$state',  function ($state) {
+    .service('EndOfGame', ['$state', '$timeout',  function ($state, $timeout) {
         var me = this;
         me.outcome = 'Continue';
         me.gameEnded = function () {
             if (me.outcome === "Win") {
-                $state.go('gameWon');
+                $timeout (function () { $state.go('gameWon');}, 3000);
             }
             else if (me.outcome === "Draw") {
-                $state.go('gameDrawn');
+                $timeout (function () {$state.go('gameDrawn');}, 3000);
             }
         };
 }]);

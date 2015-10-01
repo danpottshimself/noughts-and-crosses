@@ -1,7 +1,7 @@
 angular.module('Core.MyModule', []);
 angular.module('Directives.MyModule',[]);
 angular.module('Services.MyModule',['Core.MyModule']);
-angular.module('Controllers.MyModule', ['Services.MyModule', 'ui.router', 'Core.MyModule'])
+angular.module('Controllers.MyModule', ['Services.MyModule','Directives.MyModule', 'ui.router', 'Core.MyModule'])
     .config(function($stateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise("/PlayerSelect");

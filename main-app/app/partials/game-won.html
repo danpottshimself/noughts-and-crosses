@@ -1,6 +1,16 @@
+<audio controls autoplay ng-hide="hidden" hidden="true">
+<source src="../sounds/sound1.mp3" type="audio/mpeg">
+</audio>
+<audio controls autoplay ng-hide="hidden" hidden="true">
+<source src="../sounds/sound3.mp3" type="audio/mpeg">
+    </audio>
 <h1 class="animated tada"> Player {{boardmodel.winner}} has brutally destroyed their opponent.</h1>
 <img src="https://secure.static.tumblr.com/c7df88b223aebbb9d709aaa35f5873e4/bcgepjj/4yqn5ouf0/tumblr_static_tumblr_static_cblez45pkpsgsk8s8ko0kwcos_640.gif">
 <img src="images/wintoss.png" class="animated rollIn">
 <img src="http://cdn.makeagif.com/media/6-11-2014/r48XK_.gif">
 <img src="http://cdn.playbuzz.com/cdn/db78a69b-5010-4f4a-a336-adba4ef041fe/1d092a3d-1d18-41de-82aa-a3dcabcce84b.gif">
-<li><a ui-sref="playerSelect">Home</a></li>
+<br/>
+<br/>
+<div ng-controller="GameBoardController">
+<game-board></game-board>
+</div>
