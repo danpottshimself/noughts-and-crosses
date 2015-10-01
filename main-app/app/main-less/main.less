@@ -8,7 +8,7 @@ body {
 }
 
 a {
-  color: #7B906F;;
+  color: @link-color;;
   text-decoration: none;
   &:hover {
     color: @link-lowlight-color;
@@ -53,25 +53,66 @@ main {
   text-align: center;
 }
 main table {
-  margin-left: 750px;
+
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .choosingplayer{
   margin-top: 100px;
 }
 
-.Player1, .Player2 {
+.player1, .player2 {
+  background-image: url(../images/sprite.png);
+}
+.player1 {
+  background-position: -11px -1px;
+  width: 100px;
+  height: 100px;
+  max-height: 100px;
+  max-width: 100px;
+}
+.player2 {
+  background-position: -121px -7px;
+  width: 100px;
+  height: 100px;
+  max-height: 111px;
+  max-width: 111px;
+}
+.human, .pre-trained, .random{
+  background: url(../images/characters.png) no-repeat;
+}
+
+.human{
   display: inline-block;
-  overflow: hidden;
-  background-image: url("images/sprite.png");
+  background-position: -110px 0;
+  width: 100px;
+  height: 150px;
+  max-width: 100px;
+  max-height: 150px;
 }
-.Player1 {
-  height: 128px;
-  width: 128px;
-  background-position: 0 0;
+
+.pre-trained{
+  display: inline-block;
+  background-position: -1px 0;
+  width: 100px;
+  height: 150px;
+  max-width: 100px;
+  max-height: 150px;
 }
-.Player2 {
-  height: 128px;
-  width: 128px;
-  background-position: -129px 0;
+
+.random{
+  display: inline-block;
+  background-position: -216px 0;
+  width: 100px;
+  height: 150px;
+  max-width: 100px;
+  max-height: 150px;
+}
+
+.rules{
+  color: @text-color;
+  margin-left: 20%;
+  margin-right: 20%;
+  text-align: left;
 }

@@ -1,49 +1,19 @@
 <!DOCTYPE html>
-<html ng-app="Tombola.MyModule" lang="en">
+<html ng-app="Controllers.MyModule" lang="en">
 <head>
+    <link rel="icon" href="http://cdn.yourepeat.com/media/gif/001/398/081/a2d3bb23601180faa21b2f98655426df.gif" type="image/gif" sizes="16x16">
     <script type="text/javascript" src="thirdparty/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="thirdparty/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/main.css" type="text/css">
-    <script src="scripts/app.js"></script>
+    <link rel="stylesheet" href="css/animate.css" type="text/css">
     <title>Noughts and Crosses</title>
 </head>
-<body ng-controller="MyController">
+<body ng-controller="GameBoardController">
 <main>
-    <h1> Noughts and Crosses ({{Player1}} vs {{Player2}}) </h1>
-    <h2> Score: {{stringLine}} </h2>
-    <div id="board" ng-show="showme">
-        <table>
-        <tr id="row1">
-            <td ng-click="chooseBlock(0)" class="square"><img ng-src="images/transparent.png" class="Player1"> </td>
-            <td ng-click="chooseBlock(1)" class="square v"><img ng-src="images/transparent.png"> </td>
-            <td ng-click="chooseBlock(2)" class="square"><img ng-src="images/transparent.png"></td>
-        </tr>
-        <tr id="row2">
-            <td ng-click="chooseBlock(3)"class="square h"><img ng-src="images/transparent.png" > </td>
-            <td ng-click="chooseBlock(4)"class="square v h"><img ng-src="images/transparent.png"> </td>
-            <td ng-click="chooseBlock(5)"class="square h"><img ng-src="images/transparent.png"> </td>
-        </tr>
-        <tr id="row3">
-            <td ng-click="chooseBlock(6)" class="square"><img src="images/transparent.png" > </td>
-            <td ng-click="chooseBlock(7)" class="square v"><img src="images/transparent.png"> </td>
-            <td ng-click="chooseBlock(8)" class="square"><img src="images/transparent.png"> </td>
-        </tr>
-    </table>
-    </div>
-    <select ng-hide="showme" name="Choose Player 1" ng-model="Player1">
-        <option value="Human">Human</option>
-        <option value="Computer">Computer</option>
-    </select>
-    <span ng-hide="showme"> vs </span>
-    <select ng-hide="showme" name="Pick your enemy wisely" ng-model="Player2">
-        <option value="Human">Human</option>
-        <option value="Computer">Computer</option>
-    </select>
-    <input type="button" value="Play" ng-hide="showme" ng-click="showme=true">
-    <br/>
-    <h2> Player 1 picked {{Player1}}</h2>
-    <h2> Player 2 picked {{Player2}}</h2>
+    <div ui-view></div>
 </main>
 <br/>
 </body>
+<script src="scripts/app.js"></script>
 </html>
