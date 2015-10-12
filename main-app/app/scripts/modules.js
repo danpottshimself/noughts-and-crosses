@@ -28,7 +28,3 @@ angular.module('Controllers.MyModule', ['Services.MyModule','Directives.MyModule
                 templateUrl: "partials/game-drawn.html"
              });
     });
-
-
-
-

@@ -14,6 +14,18 @@
             less:lessTask,
             jshint:JSHintTask,
             concat:concatTask,
+            karma:{
+                unit:{
+                    configFile:'node_modules/karma/config.tpl.js',
+                    port: 35001,
+                    singleRun: true,
+                    browsers: ['Chrome'],
+                    background:true
+                },
+                options: {
+                    files: ['unit-test/**/*.*']
+                }
+            },
             watch:watchTask,
             clean:cleanTask
         });
@@ -25,11 +37,12 @@
         grunt.loadNpmTasks('grunt-contrib-watch');
         grunt.loadNpmTasks('grunt-contrib-clean');
         grunt.loadNpmTasks('grunt-express-server');
+        grunt.loadNpmTasks('grunt-karma');
 
         grunt.registerTask('lessFiles', ['lesslint', 'clean:less','less']);
         grunt.registerTask('jsFiles', ['jshint','clean:javascript', 'concat']);
         grunt.registerTask('htmlFiles', ['clean:html', 'copy:html']);
-        grunt.registerTask('default', ['clean:images', 'copy', 'lessFiles', 'jsFiles','server', 'watch']);
+        grunt.registerTask('default', ['clean:images', 'copy', 'lessFiles', 'jsFiles','server','karma', 'watch']);
         var port = 35001;
         grunt.registerTask('server', 'Start a custom web server', function() {
             var server = require('./.grunt/express-task.js');

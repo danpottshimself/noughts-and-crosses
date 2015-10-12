@@ -4,6 +4,8 @@ angular.module('Services.MyModule')
             human = characters[0];
         me.player1 = human;
         me.player2 = human;
+        me.selectedIndex1 = 0;
+        me.selectedIndex2 = 0;
         var selectCharacter = function (playerChoice) {
             if (playerChoice === human) {
                 return characters[1];
@@ -20,5 +22,11 @@ angular.module('Services.MyModule')
         };
         me.togglePlayer2 = function (){
             me.player2 = selectCharacter(me.player2);
+        };
+        me.animateCharacter1 = function($index){
+            me.selectedIndex1 = $index;
+        };
+        me.animateCharacter2 = function($index){
+            me.selectedIndex2 = $index;
         };
     }]);

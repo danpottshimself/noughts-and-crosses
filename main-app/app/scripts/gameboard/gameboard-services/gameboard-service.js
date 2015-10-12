@@ -1,6 +1,7 @@
 angular.module('Services.MyModule')
     .service('GameFunctions', ['$state','PlayerService','Proxy','CoreData','EndOfGame','Characters',  function ($state, playerService, proxy, coreData, endOfGame,characters) {
            var me = this,
+               styleArray = ['main.css', 'newStyle.css'];
                 updateInformaton = function (response) {
                 coreData.gameBoard = response.gameboard;
                 coreData.currentGameState = response.outcome;
@@ -33,5 +34,17 @@ angular.module('Services.MyModule')
                 })
                 .catch(function (response) {
                 });
+        };
+
+        var swapStyleSheet = function() {
+           var nextInArray = styleArray.indexOf(me.cssStyle) +1;
+            nextInArray =  nextInArray === styleArray.length ? 0 :  nextInArray;
+            return styleArray[nextInArray];
+        };
+
+        me.cssStyle = styleArray[0];
+
+        me.toggleCss = function () {
+            me.cssStyle = swapStyleSheet();
         };
     }]);
