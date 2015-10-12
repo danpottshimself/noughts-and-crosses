@@ -4,6 +4,7 @@
         lessTask = require('./.grunt/less-task'),
         JSHintTask=require('./.grunt/jslint'),
         concatTask=require('./.grunt/concat-task'),
+        karmaTask = require ('./.grunt/karma-task'),
         cleanTask=require('./.grunt/clean-task'),
         watchTask=require('./.grunt/watch-task');
     module.exports = function (grunt) {
@@ -14,18 +15,7 @@
             less:lessTask,
             jshint:JSHintTask,
             concat:concatTask,
-            karma:{
-                unit:{
-                    configFile:'node_modules/karma/config.tpl.js',
-                    port: 35001,
-                    singleRun: true,
-                    browsers: ['Chrome'],
-                    background:true
-                },
-                options: {
-                    files: ['unit-test/**/*.*']
-                }
-            },
+            karma:karmaTask,
             watch:watchTask,
             clean:cleanTask
         });
