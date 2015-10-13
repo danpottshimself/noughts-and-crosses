@@ -10,32 +10,32 @@
             });
         });
         it('Checks if player 1 is human', function(){
-            expect(constants.player1).to.equal('human');
+            (constants.player1).should.equal('human');
         });
         it('Checks if player 2 is human', function(){
-            expect(constants.player2).to.equal('human');
+            (constants.player2).should.equal('human');
         });
         it('Checks if the selected index is 0', function(){
-            expect(constants.selectedIndex1).to.equal(0);
+            (constants.selectedIndex1).should.equal(0);
         });
         it('Checks if the selected index is 0', function(){
-            expect(constants.selectedIndex2).to.equal(0);
+            (constants.selectedIndex2).should.equal(0);
         });
         it('Checks if player 1 toggle functions change player type', function(){
             constants.togglePlayer1();
-            expect(constants.player1).to.equal('random');
+            (constants.player1).should.equal('random');
             constants.togglePlayer1();
-            expect(constants.player1).to.equal('pre-trained');
+            (constants.player1).should.equal('pre-trained');
             constants.togglePlayer1();
-            expect(constants.player1).to.equal('human');
+            (constants.player1).should.equal('human');
         });
         it('Checks if player 2 toggle functions change player type', function(){
             constants.togglePlayer2();
-            expect(constants.player2).to.equal('random');
+            (constants.player2).should.equal('random');
             constants.togglePlayer2();
-            expect(constants.player2).to.equal('pre-trained');
+            (constants.player2).should.equal('pre-trained');
             constants.togglePlayer2();
-            expect(constants.player2).to.equal('human');
+            (constants.player2).should.equal('human');
         });
         afterEach( function(){
 

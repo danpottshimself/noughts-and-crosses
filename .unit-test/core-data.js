@@ -9,16 +9,16 @@ describe('Test CoreData', function () {
         });
     });
     it('Checks if the current player defaults as player 1', function(){
-        expect(constants.currentPlayer).to.equal('1');
+        (constants.currentPlayer).should.equal('1');
     });
     it('Checks if the winner variable defaults as empty', function(){
-        expect(constants.winner).to.equal('');
+        (constants.winner).should.equal('');
     });
     it('Checks if the game board defaults as empty', function(){
-        expect(constants.gameBoard).to.equal('');
+        (constants.gameBoard).should.equal('');
     });
     it('Checks that the current game state is defaulted as empty', function(){
-        expect(constants.currentGameState).to.equal('');
+        (constants.currentGameState).should.equal('');
     });
     afterEach( function(){
 
