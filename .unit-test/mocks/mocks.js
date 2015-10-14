@@ -7,7 +7,14 @@
             gameEnded: function () {}
         },
         CharacterLogic:{
-            humanLogic:function (index){}
+            humanLogic:function (index) {
+                if (index === 1) {
+                    return '2';
+                }
+                else {
+                    return '1';
+                }
+            }
         },
         GameFunctions:{
             updateInformaton:function(response){},
@@ -22,5 +29,11 @@
             togglePlayer2: function (){},
             animateCharacter1:function (){},
             animateCharacter2:function (){}
+        },
+        CoreData:{
+            currentPlayer :'1',
+            winner : "",
+            gameBoard : '',
+            currentGameState : ""
         }
 };
