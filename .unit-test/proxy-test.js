@@ -3,13 +3,11 @@
     'use strict';
     describe('Test Proxy', function () {
         var httpBackend,
-            returnedPromise,
             proxyName;
         beforeEach(function(){
             module('Services.MyModule');
-            inject(function( $httpBackend, $q, _Proxy_  ){
+            inject(function( $httpBackend, _Proxy_  ){
                 httpBackend = $httpBackend;
-                returnedPromise = $q;
                 proxyName = _Proxy_;
 
             });
