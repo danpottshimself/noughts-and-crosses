@@ -4,7 +4,9 @@
             chooseBlock: function(index){}
     },
         EndOfGame: {
-            gameEnded: function () {}
+            gameEnded: function (index) {
+
+            }
         },
         CharacterLogic:{
             humanLogic:function (index) {
