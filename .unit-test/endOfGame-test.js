@@ -1,34 +1,38 @@
 (function () {
     'use strict';
     describe('Test CharacterLogic', function () {
-        var endOfGame,
-            state,
+        var state,
             timeout,
-            sandbox;
+            endedgame;
 
         beforeEach(function(){
-            module('Services.MyModule', function($provide){
-                $provide.value('EndOfGame', mocks.EndOfGame);
+            module('ui.router');
+            module('Controllers.MyModule');
+            module('Services.MyModule', function(){
             });
-            sandbox = sinon.sandbox.create();
 
-            inject(function($state, $timeout){
-                state= $state;
-                timeout = $timeout;
+            inject(function($injector){
+                state= $injector.get('$state');
+                timeout = $injector.get('$timeout');
+                endedgame = $injector.get('EndOfGame')
             });
-            endOfGame = sinon.sandbox.mock(mocks.EndOfGame);
-
         });
 
         it('Checks that the state changes to draw when game is drawn.', function(){
-            mocks.EndOfGame.gameEnded({outcome:'Draw'});
+            endedgame.outcome ='Draw';
+            endedgame.gameEnded();
             timeout.flush();
             state.current.url.should.equal('/draw');
         });
 
+        it('Checks that the state changes to draw when game is won.', function(){
+            endedgame.outcome ='Win';
+            endedgame.gameEnded();
+            timeout.flush();
+            state.current.url.should.equal('/winner');
+        });
         afterEach(function(){
-            //endOfGame.verify();
-            //sandbox.restore();
+
         })
     });
 }());
