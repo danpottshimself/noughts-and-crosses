@@ -3,6 +3,9 @@
         GameBoardController: {
             chooseBlock: function(index){}
     },
+        PlayerController:{
+
+        },
         EndOfGame: {
             gameEnded: function (index) {
 
@@ -18,6 +21,11 @@
                 }
             }
         },
+        Characters: {
+            value:function (){
+                return "human";
+        }
+        },
         GameFunctions:{
             updateInformaton:function(response){},
             startGame:function(){},
@@ -26,6 +34,8 @@
             toggleCss:function(){}
         },
         PlayerService:{
+            player1 : "human",
+            player2: "human",
             selectCharacter:function(){},
             togglePlayer1: function (){},
             togglePlayer2: function (){},
