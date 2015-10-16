@@ -10,15 +10,19 @@ angular.module('Services.MyModule')
             };
         endOfGame.gameEnded();
 
+        me.changePlayer =function (){
+            if (playerService.player1 !== characters[0]) {
+                coreData.currentPlayer = "2";
+            }
+            else {
+                coreData.currentPlayer = "1";
+            }
+        };
+
         me.startGame = function () {
             proxy.newGame(playerService.player1, playerService.player2)
                 .then(function (response) {
-                    if (playerService.player1 !== characters[0]) {
-                        coreData.currentPlayer = "2";
-                    }
-                    else {
-                        coreData.currentPlayer = "1";
-                    }
+                    me.changePlayer();
                     updateInformaton(response);
                     endOfGame.gameEnded();
                 })

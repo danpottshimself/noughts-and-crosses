@@ -21,11 +21,11 @@
                 }
             }
         },
-        Characters: {
-            value:function (){
-                return "human";
-        }
+        characters:['random', 'human'],
+        value:function () {
+            return "human";
         },
+
         GameFunctions:{
             updateInformaton:function(response){},
             startGame:function(){},
@@ -47,5 +47,10 @@
             winner : "",
             gameBoard : '',
             currentGameState : ""
+        },
+        proxy: {
+            newGame: function () {
+                return {outome: 'Continue', gameboard: '000000000', winner: 0}
+            }
         }
 };
