@@ -2,8 +2,8 @@
     'use strict';
     describe('Test CharacterLogic', function () {
         var characterLogic,
-            coreData;
-        var sandbox;
+            coreData,
+            sandbox;
 
         beforeEach(function(){
             module('Services.MyModule');
@@ -24,6 +24,7 @@
             mocks.CoreData.currentPlayer =  mocks.CharacterLogic.humanLogic(2);
             mocks.CoreData.currentPlayer.should.equal('1');
         });
+
         afterEach(function(){
             characterLogic.verify();
             coreData.verify();
