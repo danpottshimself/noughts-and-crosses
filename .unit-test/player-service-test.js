@@ -3,6 +3,7 @@
     'use strict';
     describe('Test PlayerService', function () {
         var constants;
+
         beforeEach(function(){
             module('Services.MyModule');
             inject(function($injector){
