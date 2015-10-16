@@ -3,7 +3,7 @@
     describe('Test CharacterLogic', function () {
         var state,
             timeout,
-            endedgame;
+            endOfGame;
 
         beforeEach(function(){
             module('ui.router');
@@ -14,20 +14,20 @@
             inject(function($injector){
                 state= $injector.get('$state');
                 timeout = $injector.get('$timeout');
-                endedgame = $injector.get('EndOfGame')
+                endOfGame = $injector.get('EndOfGame')
             });
         });
 
         it('Checks that the state changes to draw when game is drawn.', function(){
-            endedgame.outcome ='Draw';
-            endedgame.gameEnded();
+            endOfGame.outcome ='Draw';
+            endOfGame.gameEnded();
             timeout.flush();
             state.current.url.should.equal('/draw');
         });
 
         it('Checks that the state changes to draw when game is won.', function(){
-            endedgame.outcome ='Win';
-            endedgame.gameEnded();
+            endOfGame.outcome ='Win';
+            endOfGame.gameEnded();
             timeout.flush();
             state.current.url.should.equal('/winner');
         });
