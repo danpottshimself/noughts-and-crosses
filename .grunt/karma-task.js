@@ -12,6 +12,8 @@
                     '.unit-test/gameboard-service-test.js',
                     '.unit-test/player-value-test.js',
                     '.unit-test/proxy-test.js',
+                    '.unit-test/human-logic-test.js',
+                    '.unit-test/mocks/mocks.js',
                     '.build/main-app/app/scripts/app.js']
             }
     };
