@@ -7,6 +7,11 @@
             endofgame,
             proxy,
             coredata,
+            changePlayerSpy,
+            endGameSpy,
+            //testSpy,
+            $q,
+            updateInformationSpy,
             sandbox;
 
         beforeEach(function(){
@@ -26,6 +31,7 @@
 
             inject(function ($injector){
                gamefunctions = $injector.get('GameFunctions');
+                $q = $injector.get('$q');
             });
 
             sandbox = sinon.sandbox.create();
@@ -34,21 +40,40 @@
             characters = sinon.sandbox.mock(mocks.characters);
             playerservice = sinon.sandbox.mock(mocks.PlayerService);
             proxy = sinon.sandbox.mock(mocks.proxy);
+            updateInformationSpy = sinon.sandbox.spy(mocks.GameFunctions, 'updateInformation');
+            changePlayerSpy = sinon.sandbox.spy(mocks.GameFunctions, 'changePlayer');
+            endGameSpy = sinon.sandbox.spy(mocks.EndOfGame, 'gameEnded');
         });
 
         it('Checks that the player switching changes from player 1 to 2 each turn.', function(){
             gamefunctions.changePlayer();
             mocks.CoreData.currentPlayer.should.equal("2");
         });
+
         it('Checks that the player switching changes from player 2 to 1 each turn.', function(){
             mocks.characters[0] = 'human';
             gamefunctions.changePlayer();
             mocks.CoreData.currentPlayer.should.equal("1");
         });
 
-        afterEach(function(){
+        it('Checks that functions are called after the if statements.', function(){
+            var defered = $q.defer(),
+            newGameSpy = sinon.stub(mocks.proxy, 'newGame', function (){
+                return defered.promise;
+            });
 
+            mocks.characters[0] = 'human';
+            gamefunctions.startGame();
+            defered.resolve('testString');
+            newGameSpy.should.have.been.calledOnce.calledWithExactly(mocks.PlayerService.player1, mocks.PlayerService.player2);
+            updateInformationSpy.should.have.been.calledOnce.calledWithExactly('testString');
+            changePlayerSpy.should.have.been.calledOnce();
+            endGameSpy.should.have.been.called();
+        });
+
+        afterEach(function(){
             sandbox.restore();
+            updateInformationSpy.restore();
             endofgame.verify();
             coredata.verify();
             characters.verify();

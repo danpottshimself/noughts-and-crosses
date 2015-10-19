@@ -27,9 +27,10 @@
         },
 
         GameFunctions:{
-            updateInformaton:function(response){},
+            updateInformation:function(){},
             startGame:function(){},
             makeTurn:function(index){},
+            changePlayer:function(){},
             swapStyleSheet:function(){},
             toggleCss:function(){}
         },

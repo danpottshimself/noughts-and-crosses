@@ -2,7 +2,7 @@ angular.module('Services.MyModule')
     .service('GameFunctions', ['$state','PlayerService','Proxy','CoreData','EndOfGame','Characters',  function ($state, playerService, proxy, coreData, endOfGame,characters) {
            var me = this,
                styleArray = ['main.css', 'newStyle.css'];
-                updateInformaton = function (response) {
+                me.updateInformaton = function (response) {
                 coreData.gameBoard = response.gameboard;
                 coreData.currentGameState = response.outcome;
                 endOfGame.outcome = response.outcome;
@@ -23,7 +23,7 @@ angular.module('Services.MyModule')
             proxy.newGame(playerService.player1, playerService.player2)
                 .then(function (response) {
                     me.changePlayer();
-                    updateInformaton(response);
+                    me.updateInformaton(response);
                     endOfGame.gameEnded();
                 })
                 .catch(function (response) {
@@ -33,7 +33,7 @@ angular.module('Services.MyModule')
         me.makeTurn = function (index) {
             proxy.playerTurn(coreData.currentPlayer, index)
                 .then(function (response) {
-                    updateInformaton(response);
+                    me.updateInformaton(response);
                     endOfGame.gameEnded();
                 })
                 .catch(function (response) {
