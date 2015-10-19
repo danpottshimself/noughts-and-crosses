@@ -7,14 +7,13 @@
             gameEnded: function () {}
         },
         CharacterLogic:{
-            humanLogic:function (index) {
-                if (index === 1) {
-                    return '2';
-                }
-                else {
-                    return '1';
-                }
+            changeToTwo:function () {
+                return '2';
+            },
+            changeToOne: function(){
+                return '1';
             }
+
         },
         GameFunctions:{
             updateInformaton:function(response){},
