@@ -39,6 +39,6 @@
             currentGameState : ""
         },
         StateChange: {
-            go:function(gameState){}
+            go:function(gameState) {}
         }
 };
