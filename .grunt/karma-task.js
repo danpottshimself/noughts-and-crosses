@@ -9,14 +9,7 @@
                     'bower_components/angular-ui-router/release/angular-ui-router.js',
                     'bower_components/angular-mocks/angular-mocks.js',
                     'node_modules/chai-spies/chai-spies.js',
-                    '.unit-test/core-data.js',
-                    '.unit-test/player-service-test.js',
-                    '.unit-test/gameboard-service-test.js',
-                    '.unit-test/player-value-test.js',
-                    '.unit-test/proxy-test.js',
-                    '.unit-test/human-logic-test.js',
-                    '.unit-test/endOfGame-test.js',
-                    '.unit-test/game-controller-test.js',
+                    '.unit-test/*.*',
                     '.unit-test/mocks/mocks.js',
                     '.build/main-app/app/scripts/app.js']
             }

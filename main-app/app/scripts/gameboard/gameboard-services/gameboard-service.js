@@ -10,7 +10,7 @@ angular.module('Services.MyModule')
             };
         endOfGame.gameEnded();
 
-        me.changePlayer =function (){
+        me.changePlayer = function (){
             if (playerService.player1 !== characters[0]) {
                 coreData.currentPlayer = "2";
             }
