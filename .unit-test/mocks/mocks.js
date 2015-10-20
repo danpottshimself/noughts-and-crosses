@@ -37,5 +37,8 @@
             winner : "",
             gameBoard : '',
             currentGameState : ""
+        },
+        StateChange: {
+            go:function(gameState){}
         }
 };
