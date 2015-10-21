@@ -6,7 +6,6 @@
                 var me = this;
                 me.currentStyle = 'main';
                 me.toggleStyle = function(){
-                    console.log('*********************************************************');
                   if(me.currentStyle=== 'main'){
                       me.currentStyle = 'newStyle';
                   }
