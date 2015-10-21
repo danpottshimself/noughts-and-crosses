@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html ng-controller="GameBoardController" ng-app="Controllers.MyModule" lang="en">
+<html ng-app="Controllers.MyModule" ng-controller="StyleController" lang="en">
 <div class="backgroundImage">
-<head>
-    <link rel="icon" href="http://cdn.yourepeat.com/media/gif/001/398/081/a2d3bb23601180faa21b2f98655426df.gif" type="image/gif" sizes="16x16">
-    <script type="text/javascript" src="thirdparty/bower_components/angular/angular.min.js"></script>
-    <script type="text/javascript" src="thirdparty/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/{{model.cssStyle}}" type="text/css">
-    <link rel="stylesheet" href="css/animate.css" type="text/css">
-    <title>Noughts and Crosses</title>
-</head>
-<body>
-<main>
-    <input type="button" value="change style" ng-click="model.toggleCss();">
-    <div ui-view></div>
-</main>
-<br/>
-</body>
-<script src="scripts/app.js"></script>
-    </div>
+    <head>
+        <link rel="icon" href="http://cdn.yourepeat.com/media/gif/001/398/081/a2d3bb23601180faa21b2f98655426df.gif" type="image/gif" sizes="16x16">
+        <script type="text/javascript" src="thirdparty/bower_components/angular/angular.min.js"></script>
+        <script type="text/javascript" src="thirdparty/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" ng-href="{{styleModel.currentStyle | StyleFilter}}" type="text/css">
+        <link rel="stylesheet" href="css/animate.css" type="text/css">
+        <title>Noughts and Crosses</title>
+    </head>
+    <body>
+    <main ng-controller="GameBoardController">
+        <input type="button" value="change style" ng-click="styleModel.toggleStyle()">
+        <div ui-view></div>
+    </main>
+    <br/>
+    </body>
+    <script src="scripts/app.js"></script>
+</div>
 </html>

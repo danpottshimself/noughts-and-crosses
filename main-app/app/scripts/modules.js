@@ -1,7 +1,9 @@
+//TODO: fix module names.
 angular.module('Core.MyModule', []);
 angular.module('Directives.MyModule',[]);
 angular.module('Services.MyModule',['Core.MyModule']);
-angular.module('Controllers.MyModule', ['Services.MyModule','Directives.MyModule', 'ui.router', 'Core.MyModule'])
+angular.module('Tombola.NoughtsAndCrosses.Style',[]);
+angular.module('Controllers.MyModule', ['Services.MyModule','Directives.MyModule', 'ui.router', 'Core.MyModule', 'Tombola.NoughtsAndCrosses.Style'])
     .config(function($stateProvider, $urlRouterProvider) {
 
         $urlRouterProvider.otherwise("/PlayerSelect");
