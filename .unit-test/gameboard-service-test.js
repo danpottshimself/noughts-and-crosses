@@ -6,7 +6,6 @@
             playerService,
             endOfGame,
             proxy,
-            coreData,
             changePlayerSpy,
             endGameSpy,
             $rootScope,
@@ -36,8 +35,8 @@
             characters = sinon.sandbox.mock(mocks.characters);
             playerService = sinon.sandbox.mock(mocks.PlayerService);
             proxy = sinon.sandbox.mock(mocks.proxy);
-            updateInformationSpy = sinon.spy(mocks.GameFunctions, 'updateInformation');
-            changePlayerSpy = sinon.sandbox.spy(mocks.GameFunctions, 'changePlayer');
+            updateInformationSpy = sinon.spy(gameModel, 'updateInformation');
+            changePlayerSpy = sinon.sandbox.spy(gameModel, 'changePlayer');
             endGameSpy = sinon.sandbox.spy(mocks.EndOfGame, 'gameEnded');
             testString = {outcome: 'Continue', gameboard: '000000000', winner: 0};
         });
@@ -65,9 +64,9 @@
             $rootScope.$digest();
             newGameSpy.should.have.been.calledOnce.calledWithExactly(mocks.PlayerService.player1, mocks.PlayerService.player2);
 
-            updateInformationSpy.should.have.been.calledOnce.calledWithExactly(theReturnedPromise);
-            changePlayerSpy.should.have.been.calledOnce();
-            endGameSpy.should.have.been.called();
+            updateInformationSpy.should.have.been.calledOnce;
+            changePlayerSpy.should.have.been.calledOnce;
+            endGameSpy.should.have.been.calledOnce;
         });
 
         afterEach(function(){

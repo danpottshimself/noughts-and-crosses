@@ -26,7 +26,13 @@
             return "human";
         },
 
-        GameFunctions:{
+        gameModel:{
+            player1: 'human',
+            player2: 'human',
+            currentPlayer :'1',
+            winner : "",
+            gameBoard : '',
+            currentGameState : "",
             updateInformation:function(){},
             startGame:function(){},
             makeTurn:function(index){},

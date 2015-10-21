@@ -3,9 +3,12 @@
 //    describe('Test MainController', function () {
 //        var state,
 //            controller,
+//            sandbox,
+//            makeTurnSpy,
 //            scope;
-//        beforeEach(module('ui.router'));
+//
 //        beforeEach(function () {
+//            module('ui.router');
 //            module('Controllers.MyModule');
 //
 //            inject(function ($controller, $rootScope, $state) {
@@ -15,13 +18,20 @@
 //                    $scope: scope
 //                });
 //            });
-//            sinon.spy(scope, 'chooseBlock');
+//            sandbox = sinon.sandbox.create();
+//            makeTurnSpy = sinon.sandbox.spy(mocks.gameModel, 'makeTurn');
 //        });
 //
 //        it('Ensures the game title is correct', function () {
-//         scope.chooseBlock();
-//         expect(scope.chooseBlock).toHaveBeenCalled();
+//            scope.chooseBlock();
+//            makeTurnSpy.should.have.been.called();
 //        });
 //    });
 //
+//    afterEach(function(){
+//        sandbox.restore();
+//        chooseBlockSpy.restore();
+//        playerService.verify();
+//        proxy.verify();
+//    })
 //})();
