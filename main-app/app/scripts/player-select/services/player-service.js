@@ -34,20 +34,4 @@ angular.module('Services.MyModule')
         me.togglePlayer2 = function (){
             me.player2 = toggleSelection(me.player2);
         };
-
-
-        //****************************************************************
-        //TODO: this is UI functionality - move to controller or something
-        me.selectedIndex1 = 0;
-        me.selectedIndex2 = 0;
-
-        me.animateCharacter1 = function($index){
-            me.selectedIndex1 = $index;
-        };
-
-        me.animateCharacter2 = function($index){
-            me.selectedIndex2 = $index;
-        };
-        //****************************************************************
-
     }]);

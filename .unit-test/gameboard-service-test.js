@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    describe.skip('Test GameBoardService', function () {
+    describe('Test GameBoardService', function () {
         var gameModel,
             characters,
             playerService,
@@ -23,7 +23,6 @@
                 $provide.value('Characters', mocks.characters);
                 $provide.value('Proxy', mocks.proxy);
                 $provide.value('PlayerService', mocks.PlayerService);
-                $provide.value('CoreData', mocks.CoreData);
             });
 
             inject(['$rootScope', '$q', 'GameModel', function (_$rootScope_, _$q_, _gameModel_) {
@@ -34,7 +33,6 @@
 
             sandbox = sinon.sandbox.create();
             endOfGame = sinon.sandbox.mock(mocks.EndOfGame);
-            coreData = sinon.sandbox.mock(mocks.CoreData);
             characters = sinon.sandbox.mock(mocks.characters);
             playerService = sinon.sandbox.mock(mocks.PlayerService);
             proxy = sinon.sandbox.mock(mocks.proxy);
@@ -46,13 +44,13 @@
 
         it('Checks that the player switching changes from player 1 to 2 each turn.', function(){
             gameModel.changePlayer();
-            mocks.CoreData.currentPlayer.should.equal("2");
+            gameModel.currentPlayer.should.equal("2");
         });
 
         it('Checks that the player switching changes from player 2 to 1 each turn.', function(){
             mocks.characters[0] = 'human';
             gameModel.changePlayer();
-            mocks.CoreData.currentPlayer.should.equal("1");
+            gameModel.currentPlayer.should.equal("1");
         });
 
         it('Checks that functions are called after the if statements.', function(){
@@ -77,7 +75,6 @@
             changePlayerSpy.restore();
             updateInformationSpy.restore();
             endOfGame.verify();
-            coreData.verify();
             characters.verify();
             playerService.verify();
             proxy.verify();

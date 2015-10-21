@@ -3,17 +3,16 @@ angular.module('Controllers.MyModule')
         function ($scope,$q, gameModel) {
         $scope.gameModel= gameModel;
 
-        //$scope.boardmodel=coreData;
-
         $scope.chooseBlock = function (index){
-            //if (coreData.gameBoard.charAt(index)!=="0" || coreData.currentGameState === "Win"){
-            //    return;
-            //}
-            //if (playerService.player1=== characters[0] && playerService.player2 === characters[0]) {
-            //    characterLogic.humanLogic(index);
-            //}
-            //else {
-            // gameFunctions.makeTurn(index);
-            //}
+            if (gameModel.gameBoard.charAt(index)!=="0" || gameModel.currentGameState === "Win"){
+                return;
+            }
+            if (gameModel.player1=== 'human' && gameModel.player2 === 'human') {
+               gameModel.makeTurn(index);
+
+            }
+            else {
+             gameModel.makeTurn(index);
+            }
         };
     }]);

@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    describe('Test CharacterLogic', function () {
+    describe('Test endOfGame', function () {
         var state,
             timeout,
             endedgame;
