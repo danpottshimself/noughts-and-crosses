@@ -58,6 +58,9 @@
         proxy: {
             newGame: function () {
                 return {outcome: 'Continue', gameboard: '000000000', winner: 0}
+            },
+            playerTurn: function () {
+                return {outcome: 'Continue', gameboard: '100000000', winner: 0}
             }
         },
         StateChange: {
