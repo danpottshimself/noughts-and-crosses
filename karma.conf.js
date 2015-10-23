@@ -15,12 +15,12 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-    'main-app/app/partials/*.html': ['ng-html2js']
+    'main-app/app/html/partials/*.html': ['ng-html2js']
     },
 
     ngHtml2JsPreprocessor: {
-      stripPrefix: 'main-app/app/',
-      moduleName: 'Directives.MyModule'
+      stripPrefix: 'main-app/app/html/',
+      moduleName: 'htmlLoader'
     },
     // test results reporter to use
     // possible values: 'dots', 'progress'

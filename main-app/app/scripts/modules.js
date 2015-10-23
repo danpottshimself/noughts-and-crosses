@@ -27,6 +27,7 @@ angular.module('Controllers.MyModule', ['Services.MyModule','Directives.MyModule
             })
             .state ('gameDrawn', {
                 url: "/draw",
-                template: '<game-drawn></game-drawn>'
+                template: '<game-drawn></game-drawn>',
+                controller: 'GameBoardController'
              });
     });
