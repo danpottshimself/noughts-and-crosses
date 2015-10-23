@@ -13,6 +13,7 @@
             expectedReturn,
             updateInformationSpy,
             testString,
+            toggleCurrentPlayerSpy,
             sandbox;
 
         beforeEach(function(){
@@ -36,24 +37,34 @@
             playerService = sinon.sandbox.mock(mocks.PlayerService);
             proxy = sinon.sandbox.mock(mocks.proxy);
             updateInformationSpy = sinon.spy(gameModel, 'updateInformation');
-            changePlayerSpy = sinon.sandbox.spy(gameModel, 'changePlayer');
+            changePlayerSpy = sinon.sandbox.spy(gameModel, 'setInitialPlayer');
+            toggleCurrentPlayerSpy = sinon.sandbox.spy(gameModel, 'toggleCurrentPlayer');
             endGameSpy = sinon.sandbox.spy(mocks.EndOfGame, 'gameEnded');
             testString = {outcome: 'Continue', gameboard: '000000000', winner: 0};
             expectedReturn = {outcome: 'Continue', gameboard: '100000000', winner: 0};
         });
 
+
+        it('Checks that the below variables are initialised with the correct values', function(){
+            gameModel.currentPlayer = '1';
+            gameModel.winner = "";
+            gameModel.gameBoard = '';
+            gameModel.currentGameState = "";
+        });
+
         it('Checks that the player switching changes from player 1 to 2 each turn.', function(){
-            gameModel.changePlayer();
+            gameModel.setInitialPlayer();
             gameModel.currentPlayer.should.equal("2");
         });
 
         it('Checks that the player switching changes from player 2 to 1 each turn.', function(){
             mocks.characters[0] = 'human';
-            gameModel.changePlayer();
+            gameModel.setInitialPlayer();
             gameModel.currentPlayer.should.equal("1");
         });
 
-        it('Checks that functions are called after the if statements and promise.', function(){
+
+        it('Checks that functions are called after the if statements and promise after the new game function.', function(){
             var deferred = $q.defer();
             var newGameSpy = sinon.sandbox.stub(mocks.proxy, 'newGame');
                 newGameSpy.returns(deferred.promise);
@@ -69,6 +80,10 @@
             updateInformationSpy.should.have.been.calledOnce;
             changePlayerSpy.should.have.been.calledOnce;
             endGameSpy.should.have.been.calledOnce;
+
+            gameModel.gameBoard.should.equal('000000000');
+            gameModel.currentGameState.should.equal('Continue');
+            gameModel.winner.should.equal(0);
         });
 
         it('Checks that functions are called after the if statements and promise for the make turn function.', function(){
@@ -76,8 +91,6 @@
             var playerTurnSpy = sinon.sandbox.stub(mocks.proxy, 'playerTurn');
             playerTurnSpy.returns(deferred.promise);
 
-
-            gameModel.currentPlayer = '1';
             gameModel.index = 1;
             gameModel.makeTurn();
             deferred.resolve(expectedReturn);
@@ -85,8 +98,12 @@
             playerTurnSpy.should.have.been.calledOnce.calledWithExactly('1', undefined);
 
             updateInformationSpy.should.have.been.calledOnce;
-            changePlayerSpy.should.have.been.calledOnce;
+            toggleCurrentPlayerSpy.should.have.been.calledOnce;
             endGameSpy.should.have.been.calledOnce;
+
+            gameModel.gameBoard.should.equal('100000000');
+            gameModel.currentGameState.should.equal('Continue');
+            gameModel.winner.should.equal(0);
         });
 
         afterEach(function(){
