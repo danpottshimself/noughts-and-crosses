@@ -80,5 +80,10 @@
             gameModel: {
                 gameboard : "000001000"
             }
+        },
+        StyleModel: {
+            currentStyle: 'main',
+            toggleStyle: function (){}
+
         }
 };
