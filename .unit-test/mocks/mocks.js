@@ -85,5 +85,10 @@
             currentStyle: 'main',
             toggleStyle: function (){}
 
+        },
+        gameRouting: {
+            $state: function(){},
+            $timeout: function(){},
+            resetGame: function(){}
         }
 };
