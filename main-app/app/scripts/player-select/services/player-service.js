@@ -3,18 +3,11 @@ angular.module('Services.MyModule')
         var me = this,
             human = characters[0];
 
-        //TODO: just use indices and create filter to resolve index --> character name
         me.player1 = human;
         me.player2 = human;
 
 
         var toggleSelection = function (playerChoice) {
-            //TODO: when converted to index, just use array "arithmatic"
-            //var newValue = playerChoice++;
-            //if(newValue >= characters.length){
-            //    return 0;
-            //}
-            //return newValue;
 
             if (playerChoice === human) {
                 return characters[1];
