@@ -5,6 +5,6 @@
             function () {
                return function(styleName){
                  return 'css/' + styleName + '.css';
-            };
-        }]);
+                };
+            }]);
 })();
