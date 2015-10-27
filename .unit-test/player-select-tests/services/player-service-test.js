@@ -1,4 +1,3 @@
-
 (function () {
     'use strict';
     describe('Test PlayerService', function () {
@@ -10,9 +9,11 @@
                 playerService = $injector.get('PlayerService');
             });
         });
+
         it('Checks if player 1 is human', function(){
             playerService.player1.should.equal('human');
         });
+
         it('Checks if player 2 is human', function(){
             playerService.player2.should.equal('human');
         });
@@ -25,6 +26,7 @@
             playerService.togglePlayer1();
             playerService.player1.should.equal('human');
         });
+
         it('Checks if player 2 toggle functions change player type', function(){
             playerService.togglePlayer2();
             playerService.player2.should.equal('random');
@@ -34,12 +36,12 @@
             playerService.player2.should.equal('human');
         });
 
-        it('Checks that functions are called after the if statements and promise for the make turn fiumnc.', function(){
+        it('Checks that functions are called after the if statements and promise for the make turn function.', function(){
             playerService.isPlayer1Human();
             playerService.player1.should.equal('human');
         });
 
-        it('Checks that functions are called after the if statements and promise for the make turn fiumnc.', function(){
+        it('Checks that functions are called after the if statements and promise for the make turn function.', function(){
             playerService.isPlayer2Human();
             playerService.player2.should.equal('human');
         });

@@ -56,9 +56,5 @@
             var  imgFinder = element[0].children[6];
             imgFinder.src.should.equal('http://cdn.playbuzz.com/cdn/db78a69b-5010-4f4a-a336-adba4ef041fe/1d092a3d-1d18-41de-82aa-a3dcabcce84b.gif');
         });
-
-
-        afterEach(function(){
-        })
     });
 })();

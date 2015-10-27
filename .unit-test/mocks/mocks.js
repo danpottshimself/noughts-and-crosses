@@ -1,28 +1,11 @@
  'use strict';
     var mocks = {
-        GameBoardController: {
-            chooseBlock: function(index){}
-    },
-        PlayerController:{
+        endOfGame: {
+            gameEnded: function (index) {}
+        },
 
-        },
-        EndOfGame: {
-            gameEnded: function (index) {
-
-            }
-        },
-        CharacterLogic:{
-            humanLogic:function (index) {
-                if (index === 1) {
-                    return '2';
-                }
-                else {
-                    return '1';
-                }
-            }
-        },
         characters:['random', 'human'],
-        value:function () {
+            value:function () {
             return "human";
         },
 
@@ -44,25 +27,15 @@
             updateInformation:function(){},
             startGame:function(){},
             makeTurn:function(index){},
-            setInitialPlayer:function(){},
-            swapStyleSheet:function(){},
-            toggleCss:function(){}
+            setInitialPlayer:function(){}
         },
-        PlayerService:{
+
+        playerService:{
             player1 : "human",
             player2: "human",
             areBothPlayersHuman: function (){},
-            selectCharacter:function(){},
             togglePlayer1: function (){},
-            togglePlayer2: function (){},
-            animateCharacter1:function (){},
-            animateCharacter2:function (){}
-        },
-        CoreData:{
-            currentPlayer :'1',
-            winner : "",
-            gameBoard : '',
-            currentGameState : ""
+            togglePlayer2: function (){}
         },
 
         proxy: {
@@ -74,24 +47,17 @@
             }
         },
 
-        StateChange: {
+        stateChange: {
             go:function(gameState) {}
         },
 
-        game : {
-            chooseBlock : function (number) {},
-            gameModel: {
-                gameboard : "000001000"
-            }
-        },
-
-        StyleModel: {
+        styleModel: {
             currentStyle: 'main',
             toggleStyle: function (){}
         },
+
         gameRouting: {
             $state: function(){},
             $timeout: function(){},
-            resetGame: function(){}
         }
 };
