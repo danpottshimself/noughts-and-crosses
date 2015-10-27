@@ -54,7 +54,6 @@
         styleModel: {
             currentStyle: 'main',
             toggleStyle: function (){}
-
         },
 
         gameRouting: {
