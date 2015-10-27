@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    describe('Test MainController', function () {
+    describe('Test StyleController', function () {
         var controller,
             sandbox,
             styleModel,
@@ -25,7 +25,7 @@
             controller.styleModel = mocks.StyleModel;
         });
 
-        it('Ensures the game title is correct', function () {
+        it('Ensures the model is injecting the style model service', function () {
             controller.styleModel.should.equal(mocks.StyleModel);
         });
 

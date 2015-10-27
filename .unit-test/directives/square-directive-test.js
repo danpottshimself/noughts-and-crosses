@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    describe('Test PlayerValue', function () {
+    describe('Test Square', function () {
         var compile,
             scope,
             sandbox,
@@ -28,12 +28,12 @@
             element[0].children.length.should.be.equal(1);
         });
 
-        it('Checks that the cell directives function as expected', function(){
+        it('Checks that the div should equal a class of square', function(){
             var  divFinder = element.find('div');
             divFinder.attr('class').should.equal('square');
         });
 
-        it('Checks that the value/array of player types is correct.', function(){
+        it('Checks that the img class should equal player.', function(){
             var imgFinder = element.find('img');
             imgFinder.attr('class').should.equal('player');
         });

@@ -9,12 +9,12 @@
                 styleModel = $injector.get('StyleModel');
             });
         });
-        it('Checks that the value/array of player types is correct.', function(){
+        it('Checks that the css toggle function switches css styles.', function(){
             styleModel.currentStyle = 'newStyle';
             styleModel.toggleStyle();
             styleModel.currentStyle.should.equal('main');
         });
-        it('Checks that the value/array of player types is correct.', function(){
+        it('Checks that the css toggle function switches css styles.', function(){
             styleModel.currentStyle = 'main';
             styleModel.toggleStyle();
             styleModel.currentStyle.should.equal('newStyle');

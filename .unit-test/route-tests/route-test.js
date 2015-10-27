@@ -42,8 +42,21 @@
                         state.templateProvider($templateCache).should.equal($templateCache.get('partials/rules.html'));
                     });
 
+                    it('Make sure the default state is rulePage', function () {
+                        var state = $state.get('gameDrawn');
+                        should.exist(state);
+                        state.url.should.equal('/draw');
+                        state.template.should.equal('<game-drawn></game-drawn>');
+                    });
 
-                    afterEach(function(){
+                    it('Make sure the default state is gameWon', function () {
+                        var state = $state.get('gameWon');
+                        should.exist(state);
+                        state.url.should.equal('/winner');
+                        state.template.should.equal('<game-won></game-won>');
+                    });
+
+            afterEach(function(){
                             sandbox.restore();
                     });
 

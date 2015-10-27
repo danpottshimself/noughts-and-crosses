@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    describe('Test PlayerValue', function () {
+    describe('Test GameDrawn', function () {
         var compile,
             scope,
             element;
