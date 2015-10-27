@@ -27,6 +27,14 @@
         },
 
         gameModel:{
+            isPlayer1Human : function () {
+            return player1 === 'human';
+            },
+
+            isPlayer2Human :function () {
+            return me.player2 === 'human';
+            },
+
             player1: 'human',
             player2: 'human',
             currentPlayer :'1',
@@ -36,13 +44,14 @@
             updateInformation:function(){},
             startGame:function(){},
             makeTurn:function(index){},
-            changePlayer:function(){},
+            setInitialPlayer:function(){},
             swapStyleSheet:function(){},
             toggleCss:function(){}
         },
         PlayerService:{
             player1 : "human",
             player2: "human",
+            areBothPlayersHuman: function (){},
             selectCharacter:function(){},
             togglePlayer1: function (){},
             togglePlayer2: function (){},
@@ -67,5 +76,18 @@
 
         StateChange: {
             go:function(gameState) {}
-        }
+        },
+
+        game : {
+            chooseBlock : function (number) {},
+            gameModel: {
+                gameboard : "000001000"
+            }
+        },
+
+        StyleModel: {
+            currentStyle: 'main',
+            toggleStyle: function () {
+            }
+        },
 };

@@ -12,7 +12,7 @@
         it('Checks that the value/array of player types is correct.', function(){
             styleModel.currentStyle = 'newStyle';
             styleModel.toggleStyle();
-            styleModel.currentStyle.should.deep.equal('main');
+            styleModel.currentStyle.should.equal('main');
         });
         it('Checks that the value/array of player types is correct.', function(){
             styleModel.currentStyle = 'main';

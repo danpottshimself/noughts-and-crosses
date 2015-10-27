@@ -3,7 +3,8 @@ angular.module('Directives.MyModule')
         return {
             restrict: 'E',
             template: function (attr, element){
-                return '<div ng-click="chooseBlock('+element.index+')" class="square"><img ng-src="images/transparent.png" class="player{{gameModel.gameBoard['+element.index+']}}"></div>';
+                return '<div ng-click="chooseBlock('+element.index+')" class="square">' +
+                    '<img ng-src="images/transparent.png" class="player{{gameModel.gameBoard['+element.index+']}}"></div>';
             }
         };
     });

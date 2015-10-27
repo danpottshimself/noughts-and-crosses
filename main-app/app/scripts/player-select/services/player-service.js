@@ -34,4 +34,16 @@ angular.module('Services.MyModule')
         me.togglePlayer2 = function (){
             me.player2 = toggleSelection(me.player2);
         };
+
+        me.areBothPlayersHuman = function () {
+            return me.isPlayer1Human() && me.isPlayer2Human();
+        };
+
+        me.isPlayer1Human = function () {
+            return me.player1 === human;
+        };
+
+        me.isPlayer2Human = function () {
+            return me.player2 === human;
+        };
     }]);

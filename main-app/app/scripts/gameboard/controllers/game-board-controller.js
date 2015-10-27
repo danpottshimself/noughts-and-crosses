@@ -4,15 +4,9 @@ angular.module('Controllers.MyModule')
         $scope.gameModel= gameModel;
 
         $scope.chooseBlock = function (index){
-            if (gameModel.gameBoard.charAt(index)!=="0" || gameModel.currentGameState === "Win"){
+            if ( gameModel.currentGameState !== "Continue" || gameModel.gameBoard.charAt(index)!=="0" ){
                 return;
             }
-            if (gameModel.player1=== 'human' && gameModel.player2 === 'human') {
-               gameModel.makeTurn(index);
-
-            }
-            else {
-             gameModel.makeTurn(index);
-            }
+            gameModel.makeTurn(index);
         };
     }]);
