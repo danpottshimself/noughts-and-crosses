@@ -64,6 +64,7 @@
             gameBoard : '',
             currentGameState : ""
         },
+
         proxy: {
             newGame: function () {
                 return {outcome: 'Continue', gameboard: '000000000', winner: 0}
@@ -72,18 +73,21 @@
                 return {outcome: 'Continue', gameboard: '100000000', winner: 0}
             }
         },
+
         StateChange: {
             go:function(gameState) {}
         },
+
         game : {
             chooseBlock : function (number) {},
             gameModel: {
                 gameboard : "000001000"
             }
         },
+
         StyleModel: {
             currentStyle: 'main',
-            toggleStyle: function (){}
-
-        }
+            toggleStyle: function () {
+            }
+        },
 };
