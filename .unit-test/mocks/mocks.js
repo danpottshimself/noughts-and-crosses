@@ -51,13 +51,6 @@
             go:function(gameState) {}
         },
 
-        game: {
-            chooseBlock : function (number) {},
-            gameModel: {
-                gameboard : "000001000"
-            }
-        },
-
         styleModel: {
             currentStyle: 'main',
             toggleStyle: function (){}
