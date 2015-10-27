@@ -63,8 +63,8 @@
         });
 
         it('Checks that functions are called after the if statements and promise after the new game function.', function(){
-            var deferred = $q.defer();
-            var newGameSpy = sinon.sandbox.stub(mocks.proxy, 'newGame');
+            var deferred = $q.defer(),
+                newGameSpy = sinon.sandbox.stub(mocks.proxy, 'newGame');
                 newGameSpy.returns(deferred.promise);
 
             mocks.characters[0] = 'human';
@@ -83,8 +83,8 @@
         });
 
         it('Checks that functions are called after the if statements and promise for the make turn function.', function(){
-            var deferred = $q.defer();
-            var playerTurnSpy = sinon.sandbox.stub(mocks.proxy, 'playerTurn');
+            var deferred = $q.defer(),
+            playerTurnSpy = sinon.sandbox.stub(mocks.proxy, 'playerTurn');
             playerTurnSpy.returns(deferred.promise);
 
             gameModel.index = 1;
