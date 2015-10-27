@@ -64,6 +64,7 @@
             gameBoard : '',
             currentGameState : ""
         },
+
         proxy: {
             newGame: function () {
                 return {outcome: 'Continue', gameboard: '000000000', winner: 0}
@@ -72,6 +73,7 @@
                 return {outcome: 'Continue', gameboard: '100000000', winner: 0}
             }
         },
+
         StateChange: {
             go:function(gameState) {}
         },

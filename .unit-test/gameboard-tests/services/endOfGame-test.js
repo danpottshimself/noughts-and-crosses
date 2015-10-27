@@ -2,37 +2,39 @@
     'use strict';
     describe('Test endOfGame', function () {
         var state,
+            stateChangeSpy,
             timeout,
-            endedgame;
+            endOfGame;
 
         beforeEach(function(){
             module('ui.router');
             module('Controllers.MyModule');
-            module('Services.MyModule', function(){
+            module('Services.MyModule', function($provide){
+                $provide.value('$state', mocks.StateChange);
             });
 
             inject(function($injector){
-                state= $injector.get('$state');
                 timeout = $injector.get('$timeout');
-                endedgame = $injector.get('EndOfGame')
+                endOfGame = $injector.get('EndOfGame')
             });
+            stateChangeSpy = sinon.sandbox.spy(mocks.StateChange, 'go');
         });
 
         it('Checks that the state changes to draw when game is drawn.', function(){
-            endedgame.outcome ='Draw';
-            endedgame.gameEnded();
+            endOfGame.outcome ='Draw';
+            endOfGame.gameEnded();
             timeout.flush();
-            state.current.url.should.equal('/draw');
+            stateChangeSpy.should.have.been.calledOnce;
         });
 
         it('Checks that the state changes to draw when game is won.', function(){
-            endedgame.outcome ='Win';
-            endedgame.gameEnded();
+            endOfGame.outcome ='Win';
+            endOfGame.gameEnded();
             timeout.flush();
-            state.current.url.should.equal('/winner');
+            stateChangeSpy.should.have.been.calledOnce;
         });
         afterEach(function(){
-
+            stateChangeSpy.restore();
         })
     });
 }());
