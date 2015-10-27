@@ -77,16 +77,17 @@
         StateChange: {
             go:function(gameState) {}
         },
+
         game : {
             chooseBlock : function (number) {},
             gameModel: {
                 gameboard : "000001000"
             }
         },
+
         StyleModel: {
             currentStyle: 'main',
             toggleStyle: function (){}
-
         },
         gameRouting: {
             $state: function(){},
