@@ -9,7 +9,7 @@
 
         beforeEach(function () {
             module('Tombola.NoughtsAndCrosses.Style',function ($provide) {
-                $provide.value('StyleModel', mocks.StyleModel);
+                $provide.value('StyleModel', mocks.styleModel);
             });
 
             inject(function (_$controller_, $rootScope) {
@@ -21,12 +21,12 @@
             });
 
             sandbox = sinon.sandbox.create();
-            styleModel = sinon.sandbox.mock(mocks.StyleModel);
-            controller.styleModel = mocks.StyleModel;
+            styleModel = sinon.sandbox.mock(mocks.styleModel);
+            controller.styleModel = mocks.styleModel;
         });
 
         it('Ensures the model is injecting the style model service', function () {
-            controller.styleModel.should.equal(mocks.StyleModel);
+            controller.styleModel.should.equal(mocks.styleModel);
         });
 
         afterEach(function(){

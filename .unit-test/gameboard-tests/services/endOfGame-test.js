@@ -10,7 +10,7 @@
             module('ui.router');
             module('Controllers.MyModule');
             module('Services.MyModule', function($provide){
-                $provide.value('$state', mocks.StateChange);
+                $provide.value('$state', mocks.stateChange);
             });
 
             inject(function($injector){
@@ -18,7 +18,7 @@
                 endedgame = $injector.get('EndOfGame')
             });
             sandbox = sinon.sandbox.create();
-            stateSpy = sinon.sandbox.spy(mocks.StateChange, 'go');
+            stateSpy = sinon.sandbox.spy(mocks.stateChange, 'go');
         });
 
         it('Checks that the state changes to draw when game is drawn.', function(){

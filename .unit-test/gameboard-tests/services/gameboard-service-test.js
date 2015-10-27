@@ -18,11 +18,11 @@
 
         beforeEach(function(){
             module('Services.MyModule', function ($provide){
-                $provide.value('$state', mocks.StateChange);
-                $provide.value('EndOfGame', mocks.EndOfGame);
+                $provide.value('$state', mocks.stateChange);
+                $provide.value('EndOfGame', mocks.endOfGame);
                 $provide.value('Characters', mocks.characters);
                 $provide.value('Proxy', mocks.proxy);
-                $provide.value('PlayerService', mocks.PlayerService);
+                $provide.value('PlayerService', mocks.playerService);
             });
 
             inject(['$rootScope', '$q', 'GameModel', function (_$rootScope_, _$q_, _gameModel_) {
@@ -32,14 +32,14 @@
             }]);
 
             sandbox = sinon.sandbox.create();
-            endOfGame = sinon.sandbox.mock(mocks.EndOfGame);
+            endOfGame = sinon.sandbox.mock(mocks.endOfGame);
             characters = sinon.sandbox.mock(mocks.characters);
-            playerService = sinon.sandbox.mock(mocks.PlayerService);
+            playerService = sinon.sandbox.mock(mocks.playerService);
             proxy = sinon.sandbox.mock(mocks.proxy);
             updateInformationSpy = sinon.spy(gameModel, 'updateInformation');
             changePlayerSpy = sinon.sandbox.spy(gameModel, 'setInitialPlayer');
             toggleCurrentPlayerSpy = sinon.sandbox.spy(gameModel, 'toggleCurrentPlayer');
-            endGameSpy = sinon.sandbox.spy(mocks.EndOfGame, 'gameEnded');
+            endGameSpy = sinon.sandbox.spy(mocks.endOfGame, 'gameEnded');
             testString = {outcome: 'Continue', gameboard: '000000000', winner: 0};
             expectedReturn = {outcome: 'Continue', gameboard: '100000000', winner: 0};
         });
@@ -71,7 +71,7 @@
             gameModel.startGame();
             deferred.resolve(testString);
             $rootScope.$digest();
-            newGameSpy.should.have.been.calledOnce.calledWithExactly(mocks.PlayerService.player1, mocks.PlayerService.player2);
+            newGameSpy.should.have.been.calledOnce.calledWithExactly(mocks.playerService.player1, mocks.playerService.player2);
 
             updateInformationSpy.should.have.been.calledOnce;
             changePlayerSpy.should.have.been.calledOnce;

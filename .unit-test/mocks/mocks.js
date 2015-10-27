@@ -1,6 +1,6 @@
  'use strict';
     var mocks = {
-        EndOfGame: {
+        endOfGame: {
             gameEnded: function (index) {}
         },
 
@@ -30,7 +30,7 @@
             setInitialPlayer:function(){}
         },
 
-        PlayerService:{
+        playerService:{
             player1 : "human",
             player2: "human",
             areBothPlayersHuman: function (){},
@@ -47,7 +47,7 @@
             }
         },
 
-        StateChange: {
+        stateChange: {
             go:function(gameState) {}
         },
 
@@ -58,7 +58,7 @@
             }
         },
 
-        StyleModel: {
+        styleModel: {
             currentStyle: 'main',
             toggleStyle: function (){}
 
