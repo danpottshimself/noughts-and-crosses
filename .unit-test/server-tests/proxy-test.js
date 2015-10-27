@@ -7,17 +7,9 @@
 
         beforeEach(function(){
             module('Services.MyModule');
-            inject(['$httpBackend','Proxy',function( $httpBackend, _proxy_  ){
-                httpBackend = $httpBackend;
-<<<<<<< HEAD
-                proxyName = _proxy_;
-            }]);
-
             inject(['$httpBackend','$q','Proxy', function ( $httpBackend, $q, _proxy_ ){
                 httpBackend = $httpBackend;
                 returnedPromise = $q;
-=======
->>>>>>> master
                 proxyName = _proxy_;
             }]);
         });
