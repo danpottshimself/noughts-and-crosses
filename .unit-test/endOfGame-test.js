@@ -1,7 +1,7 @@
 (function () {
     'use strict';
-    describe('Test EndOfGame', function () {
-        var $state,
+    describe('Test endOfGame', function () {
+        var state,
             stateChangeSpy,
             timeout,
             endOfGame;

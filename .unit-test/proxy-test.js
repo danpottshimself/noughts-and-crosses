@@ -8,14 +8,8 @@
 
         beforeEach(function(){
             module('Services.MyModule');
-            inject(function( $httpBackend, _Proxy_  ){
+            inject(['$httpBackend','Proxy',function( $httpBackend, _proxy_  ){
                 httpBackend = $httpBackend;
-                proxyName = _Proxy_;
-            });
-
-            inject(['$httpBackend','$q','Proxy', function ( $httpBackend, $q, _proxy_ ){
-                httpBackend = $httpBackend;
-                returnedPromise = $q;
                 proxyName = _proxy_;
             }]);
         });

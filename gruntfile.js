@@ -32,7 +32,9 @@
         grunt.registerTask('lessFiles', ['lesslint', 'clean:less','less']);
         grunt.registerTask('jsFiles', ['jshint','clean:javascript', 'concat']);
         grunt.registerTask('htmlFiles', ['clean:html', 'copy:html']);
-        grunt.registerTask('default', ['clean:images', 'copy', 'lessFiles', 'jsFiles','server','karma', 'watch']);
+        grunt.registerTask('build', ['clean:images', 'copy', 'lessFiles', 'jsFiles']);
+        grunt.registerTask('notest', ['build','server', 'watch']);
+        grunt.registerTask('default', ['build','karma', 'server', 'watch']);
         var port = 35001;
         grunt.registerTask('server', 'Start a custom web server', function() {
             var server = require('./.grunt/express-task.js');
