@@ -87,7 +87,11 @@
 
         StyleModel: {
             currentStyle: 'main',
-            toggleStyle: function () {
-            }
+            toggleStyle: function (){}
         },
+        gameRouting: {
+            $state: function(){},
+            $timeout: function(){},
+            resetGame: function(){}
+        }
 };

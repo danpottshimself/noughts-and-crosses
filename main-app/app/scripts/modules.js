@@ -23,10 +23,12 @@ angular.module('Controllers.MyModule', ['Services.MyModule','Directives.MyModule
             })
             .state('gameWon', {
                 url: "/winner",
-                template: '<game-won></game-won>'
+                template: '<game-won></game-won>',
+                controller: 'GameBoardController'
             })
             .state ('gameDrawn', {
                 url: "/draw",
-                template: '<game-drawn></game-drawn>'
+                template: '<game-drawn></game-drawn>',
+                controller: 'GameBoardController'
              });
     });
