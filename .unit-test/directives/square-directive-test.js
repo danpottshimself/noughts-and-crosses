@@ -47,7 +47,6 @@
             divFinder.attr('ng-click').should.be.equal('chooseBlock(5)');
            });
 
-
         afterEach(function(){
             sandbox.restore();
         })

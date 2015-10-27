@@ -1,40 +1,32 @@
 (function () {
     'use strict';
-    describe('Test MainController', function () {
-        var state,
-            controller,
+    describe('Test GameboardController', function () {
+        var controller,
             sandbox,
-            makeTurnSpy,
-            gameModel,
+            playerService,
             $controller,
-            $q,
             scope;
 
         beforeEach(function () {
-            module('ui.router');
             module('Controllers.MyModule',function ($provide) {
-                $provide.value('GameModel', mocks.gameModel);
+                $provide.value('PlayerService', mocks.PlayerService);
             });
 
-            inject(function (_$controller_, $rootScope, $state, _$q_) {
+            inject(function (_$controller_, $rootScope) {
                 scope = $rootScope.$new();
-                state = $state;
-                $q = _$q_;
                 $controller = _$controller_;
-                controller = $controller('GameBoardController', {
+                controller = $controller('PlayerController', {
                     $scope: scope
                 });
             });
 
             sandbox = sinon.sandbox.create();
-            gameModel = sinon.sandbox.mock(mocks.gameModel);
-            makeTurnSpy = sinon.sandbox.spy(mocks.gameModel, 'makeTurn');
+            playerService = sinon.sandbox.mock(mocks.PlayerService);
+            controller.playerService = mocks.PlayerService;
         });
 
-        it('Ensures the game title is correct', function () {
-
-            scope.chooseBlock();
-            //makeTurnSpy.should.have.been.calledOnce();
+        it('Ensures that the PlayerService service is used in the scope correctly', function () {
+            controller.playerService.should.equal(mocks.PlayerService);
         });
 
         afterEach(function(){

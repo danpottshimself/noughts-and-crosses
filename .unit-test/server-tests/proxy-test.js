@@ -1,4 +1,3 @@
-
 (function () {
     'use strict';
     describe('Test Proxy', function () {
@@ -10,9 +9,9 @@
             inject(['$httpBackend','Proxy',function( $httpBackend, _proxy_  ){
                 httpBackend = $httpBackend;
                 proxyName = _proxy_;
-
             }]);
         });
+
         it('Checks if the newGame function in the proxy service returns the correct values', function(){
             var theResponse = {'outcome':'Continue','gameboard':'000000000','winner':0},
                 returnedPromise = proxyName.newGame("human", "human"),

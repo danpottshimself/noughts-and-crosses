@@ -44,7 +44,6 @@
             expectedReturn = {outcome: 'Continue', gameboard: '100000000', winner: 0};
         });
 
-
         it('Checks that the below variables are initialised with the correct values', function(){
             gameModel.currentPlayer = '1';
             gameModel.winner = "";
@@ -63,19 +62,16 @@
             gameModel.currentPlayer.should.equal("1");
         });
 
-
         it('Checks that functions are called after the if statements and promise after the new game function.', function(){
             var deferred = $q.defer();
             var newGameSpy = sinon.sandbox.stub(mocks.proxy, 'newGame');
                 newGameSpy.returns(deferred.promise);
-
 
             mocks.characters[0] = 'human';
             gameModel.startGame();
             deferred.resolve(testString);
             $rootScope.$digest();
             newGameSpy.should.have.been.calledOnce.calledWithExactly(mocks.PlayerService.player1, mocks.PlayerService.player2);
-
 
             updateInformationSpy.should.have.been.calledOnce;
             changePlayerSpy.should.have.been.calledOnce;

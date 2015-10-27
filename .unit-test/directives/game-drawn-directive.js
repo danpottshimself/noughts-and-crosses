@@ -58,9 +58,5 @@
             var  imgFinder = element[0].children[5];
             imgFinder.src.should.equal('http://img4.wikia.nocookie.net/__cb20140105221224/disneycreate/images/7/7a/Sigh.gif');
         });
-
-
-        afterEach(function(){
-        })
     });
 })();

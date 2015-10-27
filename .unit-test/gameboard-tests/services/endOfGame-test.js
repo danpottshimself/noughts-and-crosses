@@ -31,8 +31,5 @@
             timeout.flush();
             state.current.url.should.equal('/winner');
         });
-        afterEach(function(){
-
-        })
     });
 }());
