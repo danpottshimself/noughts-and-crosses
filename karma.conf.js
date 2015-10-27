@@ -14,7 +14,14 @@ module.exports = function(config) {
     exclude: ["**/angular-scenario.js" ],
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: [],
+    preprocessors: {
+    'main-app/app/partials/*.html': ['ng-html2js']
+    },
+
+    ngHtml2JsPreprocessor: {
+      stripPrefix: 'main-app/app/',
+      moduleName: 'Directives.MyModule'
+    },
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter

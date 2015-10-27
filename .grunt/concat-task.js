@@ -4,6 +4,7 @@
         concat: {
             cwd: '',
             src: ['main-app/app/scripts/modules.js',
+                'main-app/app/scripts/templateCache.js',
                 'main-app/app/scripts/server/services/*.js',
                 'main-app/app/scripts/player-select/services/*.js',
                 'main-app/app/scripts/style/services/*.js',

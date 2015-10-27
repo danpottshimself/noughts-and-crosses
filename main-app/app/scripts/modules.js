@@ -11,15 +11,15 @@ angular.module('Controllers.MyModule', ['Services.MyModule','Directives.MyModule
         $stateProvider
             .state('gameBoard', {
                 url: "/PlayGame",
-                templateUrl: "partials/game-board.html"
+                templateProvider:function ($templateCache){ return $templateCache.get("partials/game-board.html");}
             })
             .state ('rulePage', {
                  url: "/Rules",
-                 templateUrl: "partials/rules.html"
+            templateProvider:function ($templateCache){ return $templateCache.get("partials/rules.html");}
             })
             .state('playerSelect', {
                 url: "/PlayerSelect",
-                templateUrl: "partials/player-select.html"
+                templateProvider:function ($templateCache){ return $templateCache.get("partials/player-select.html");}
             })
             .state('gameWon', {
                 url: "/winner",

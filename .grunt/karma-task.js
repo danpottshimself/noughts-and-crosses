@@ -11,6 +11,7 @@
                     'node_modules/chai-spies/chai-spies.js',
                     '.unit-test/**/*.*',
                     '.unit-test/mocks/mocks.js',
+                    'main-app/app/partials/*.html',
                     '.build/main-app/app/scripts/app.js']
             }
     };
