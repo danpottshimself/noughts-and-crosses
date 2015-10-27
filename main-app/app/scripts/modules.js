@@ -21,10 +21,10 @@ angular.module('Controllers.MyModule', ['Services.MyModule','Directives.MyModule
             })
             .state('gameWon', {
                 url: "/winner",
-                templateUrl: "partials/game-won.html"
+                template: '<game-won></game-won>'
             })
             .state ('gameDrawn', {
                 url: "/draw",
-                templateUrl: "partials/game-drawn.html"
+                template: '<game-drawn></game-drawn>'
              });
     });
