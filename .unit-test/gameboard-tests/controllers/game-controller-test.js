@@ -1,32 +1,32 @@
 (function () {
     'use strict';
-    describe('Test GameboardController', function () {
+    describe('Test GameBoardController', function () {
         var controller,
             sandbox,
-            playerService,
+            gameModel,
             $controller,
             scope;
 
         beforeEach(function () {
             module('Controllers.MyModule',function ($provide) {
-                $provide.value('PlayerService', mocks.PlayerService);
+                $provide.value('GameModel', mocks.gameModel);
             });
 
             inject(function (_$controller_, $rootScope) {
                 scope = $rootScope.$new();
                 $controller = _$controller_;
-                controller = $controller('PlayerController', {
+                controller = $controller('GameBoardController', {
                     $scope: scope
                 });
             });
 
             sandbox = sinon.sandbox.create();
-            playerService = sinon.sandbox.mock(mocks.PlayerService);
-            controller.playerService = mocks.PlayerService;
+            gameModel = sinon.sandbox.mock(mocks.gameModel);
+            controller.gameModel = mocks.gameModel;
         });
 
-        it('Ensures that the PlayerService service is used in the scope correctly', function () {
-            controller.playerService.should.equal(mocks.PlayerService);
+        it('Ensures that the gameModel service is used in the scope correctly', function () {
+            controller.gameModel.should.equal(mocks.gameModel);
         });
 
         afterEach(function(){
