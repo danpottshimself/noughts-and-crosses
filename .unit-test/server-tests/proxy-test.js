@@ -2,12 +2,19 @@
     'use strict';
     describe('Test Proxy', function () {
         var httpBackend,
+            returnedPromise,
             proxyName;
 
         beforeEach(function(){
             module('Services.MyModule');
             inject(['$httpBackend','Proxy',function( $httpBackend, _proxy_  ){
                 httpBackend = $httpBackend;
+                proxyName = _proxy_;
+            }]);
+
+            inject(['$httpBackend','$q','Proxy', function ( $httpBackend, $q, _proxy_ ){
+                httpBackend = $httpBackend;
+                returnedPromise = $q;
                 proxyName = _proxy_;
             }]);
         });
@@ -22,6 +29,7 @@
             returnedPromise.then(function(response){
                 result = response;
             });
+
             httpBackend.flush();
             result.should.be.deep.equal(theResponse);
         });
@@ -37,6 +45,7 @@
             returnedPromise.then(function(response){
                 result = response;
             });
+
             httpBackend.flush();
             result.should.be.deep.equal(theResponse);
         });
